@@ -30,6 +30,38 @@ const TriggerMenu = () => {
     const popupServices = usePopupState({ variant: 'popover', popupId: 'Services' })
     const popupAbout = usePopupState({ variant: 'popover', popupId: 'About' })
 
+    const menuItems = [
+        {
+            getContentAnchorEl: null, 
+            anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
+            transformOrigin: { vertical: 'top', horizontal: 'left' },
+            subMenu: [
+                {
+                    label: 'Data Storage',
+                },
+                {
+                    label: 'Compliances',
+                },
+                {
+                    label: 'Cyber Security',
+                },
+            ],            
+        },
+    ];
+
+
+    const productMenu = () => {
+        menuItems.map((menuItem) => {
+            return(
+                <Menu>
+                    {menuItem.subMenu.map((submenuItem) => <MenuItem onClick={popupProduct.close}>Data Storage</MenuItem>)}
+                </Menu>
+            );
+        });
+    };
+    
+    
+
 
     return (
         <div>
