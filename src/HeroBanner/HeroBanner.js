@@ -71,7 +71,7 @@ const HeroBanner = () => {
 
     return (
         <div className={classes.heroImage} style={{backgroundImage :`url(${BannerBackground3})`}}>
-            <Container className={classes.container} fixed>
+            <Container className={classes.container}>
                 <div className={classes.slogan}>
                     <h1>COMBINING THE BEST</h1>
                     <p>Specialized in combining Legal, Finance and IT</p>

@@ -51,7 +51,7 @@ const Nav = (props) => {
         <CssBaseline />
         <HideOnScroll {...props}>
             <AppBar className={classes.appBar}>
-                <Container fixed>
+                <Container>
                     <Toolbar className={classes.toolBar}>
                         <Link className={classes.link} href="#" >
                             <Typography variant="h3">7io</Typography>
