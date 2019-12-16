@@ -41,7 +41,8 @@ const useStyles = makeStyles(theme => ({
           },
     },
     heroImage:{
-        height: '100vh',
+        height: 'auto',
+        width:'100vw',
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',

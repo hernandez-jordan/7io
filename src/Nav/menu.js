@@ -60,9 +60,12 @@ const TriggerMenu = props => {
     const popupMobile = usePopupState({ variant: 'popover', popupId: 'Mobile', })
     
     const menuItems = [
-        {
+        {   
             bindMenuProps: bindMenu(popupProduct), 
             subMenu: [
+                {   
+                    menuProps: {onClickFunc : (e) => (popupProduct.close)},
+                },
                 {
                     label: 'Data Storage',
                 },
@@ -74,7 +77,8 @@ const TriggerMenu = props => {
                 },
             ],            
         },
-        {
+        {   
+            menuProps: 'popupServices',
             bindMenuProps:  bindMenu(popupServices), 
             subMenu: [
                 {
@@ -130,26 +134,25 @@ const TriggerMenu = props => {
         },
     ];
 
-    const renderMenuItems  = (menuItems) => {
+    const renderMenuItems = (menuItems) => {
         return menuItems.map((menuItem, key) => {
             return (
                 <Menu
-                key={key} 
-                {...menuItem.bindMenuProps}
-                getContentAnchorEl={null}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-                
+                    key={key}
+                    {...menuItem.bindMenuProps}
+                    getContentAnchorEl={null}
+                    anchorOrigin={{vertical: 'bottom', horizontal:'left'}}
+                    transformOrigin={{vertical: 'top', horizontal:'left'}}
                 >
                     {
                         //if condition is true renderMenuItems(menuItem.subMenu)
-                        menuItem.subMenu.map((subMenuItem, j ) => <MenuItem key={j} onClick={popupProduct.close}>{subMenuItem.label}</MenuItem>)
+                        menuItem.subMenu.map((subMenuItem, keyB) => <MenuItem key={keyB} onClick={subMenuItem.menuProps.onClickFunc}>{subMenuItem.label}</MenuItem>)
+                          
                     }
                 </Menu>
             )
         })
     }
-
 
     return (
         <>
@@ -180,6 +183,7 @@ const TriggerMenu = props => {
                     </Link>
                 </Button>
                 { renderMenuItems(menuItems) }   
+                
             </div>
           
             
