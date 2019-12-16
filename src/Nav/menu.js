@@ -63,11 +63,11 @@ const TriggerMenu = props => {
         {   
             bindMenuProps: bindMenu(popupProduct), 
             subMenu: [
-                {   
-                    menuProps: {onClickFunc : (e) => (popupProduct.close)},
-                },
                 {
                     label: 'Data Storage',
+                    menuProps: {
+                        onClickFunction : (e) => (popupProduct.close)
+                    }
                 },
                 {
                     label: 'Compliances',
@@ -146,7 +146,7 @@ const TriggerMenu = props => {
                 >
                     {
                         //if condition is true renderMenuItems(menuItem.subMenu)
-                        menuItem.subMenu.map((subMenuItem, keyB) => <MenuItem key={keyB} onClick={subMenuItem.menuProps.onClickFunc}>{subMenuItem.label}</MenuItem>)
+                        menuItem.subMenu.map((subMenuItem, keyB) => <MenuItem key={keyB} onClick={(subMenuItem.hasOwnProperty('menuProps') ? subMenuItem.menuProps.onClickFunction : null)}>{subMenuItem.label}</MenuItem>)
                           
                     }
                 </Menu>
