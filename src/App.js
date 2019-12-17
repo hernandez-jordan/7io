@@ -3,6 +3,7 @@ import './App.css';
 import HeroBanner from './HeroBanner/HeroBanner';
 import MainOne from './main/MainOne';
 import MainTwo from './main/MainTwo';
+import PartnersSlide from './main/Partners';
 import Nav from './Nav/Nav';
 
 
@@ -13,6 +14,7 @@ function App() {
       <HeroBanner />
       <MainOne />
       <MainTwo />
+      <PartnersSlide />
     </div>
   );
 }
