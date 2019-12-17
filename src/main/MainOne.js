@@ -12,43 +12,49 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  container: {
-    margin: '50px auto',
-  },
-  card: {
-    boxShadow: 'none',
-    height: '100%',
-    borderRadius: 10,
-    textAlign: 'center',
-  },
-  media: {
-    height: 140
-  },
-  cardMedia: {
-    objectFit: 'none',
-  },
-  componentTitle : {
-    margin: '50px auto',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    color: '#331D48',
-  },
-  button: {
-    color: "white",
-    display: 'inherit',
-    borderRadius: "50px",
-    backgroundColor: "#A765E6",
-    width: "15em",
-    height: "3em",
-    margin: '50px auto',
-    "&:hover": {
-      backgroundColor: "#331D48",
-      border: "2px solid white"
-    }
-  },
+  outer: {
+        backgroundColor: '',
+        padding: 50,
+        height: 'auto',
+        width: '100%'
+    },
+    container: {
+      margin: '50px auto',
+    },
+    card: {
+      boxShadow: 'none',
+      height: '100%',
+      borderRadius: 10,
+      textAlign: 'center',
+    },
+    media: {
+      height: 140
+    },
+    cardMedia: {
+      objectFit: 'none',
+    },
+    componentTitle : {
+      margin: '50px auto',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      color: '#331D48',
+    },
+    button: {
+      color: "white",
+      display: 'inherit',
+      borderRadius: "50px",
+      backgroundColor: "#A765E6",
+      width: "15em",
+      height: "3em",
+      margin: '50px auto',
+      "&:hover": {
+        backgroundColor: "#331D48",
+        border: "2px solid white"
+      }
+    },
 });
 
-const MainFOE = () => {
+const MainOne = () => {
   const classes = useStyles();
 
   const cardItems = [
@@ -103,21 +109,23 @@ const MainFOE = () => {
   };
 
   return (
-    <Container className={classes.container}>
-      <Typography gutterBottom className={classes.componentTitle} variant="h2" component="h1">
-        Field of expertise
-      </Typography>
-      <Grid container spacing={1}>
-        {renderCardItems(cardItems)}
-      </Grid>
-      <Button size="medium" className={classes.button}>
-        Read More
-      </Button>
-    </Container>
+    <div className={classes.outer}>
+      <Container className={classes.container}>
+        <Typography gutterBottom className={classes.componentTitle} variant="h2" component="h1">
+          Field of expertise
+        </Typography>
+        <Grid container spacing={1}>
+          {renderCardItems(cardItems)}
+        </Grid>
+        <Button size="medium" className={classes.button}>
+          Read More
+        </Button>
+      </Container>
+    </div> 
   );
 };
 
-export default MainFOE;
+export default MainOne;
 
 
 
