@@ -85,9 +85,9 @@ const MainOne = () => {
   ];
 
   const renderCardItems = cardItems => {
-    return cardItems.map((cardItem, key) => {
+    return cardItems.map((cardItem, keyC) => {
       return (
-        <Grid item xs={12} sm={6} md={3} key={key}>
+        <Grid item xs={12} sm={6} md={3} key={keyC}>
           <CardActionArea className={classes.card}>
             <Card className={classes.card}>
               <CardMedia

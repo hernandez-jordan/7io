@@ -4,6 +4,7 @@ import HeroBanner from './HeroBanner/HeroBanner';
 import MainOne from './main/MainOne';
 import MainTwo from './main/MainTwo';
 import PartnersSlide from './main/Partners';
+import ContactForm from './ContactForm/ContactForm';
 import Nav from './Nav/Nav';
 
 
@@ -15,6 +16,7 @@ function App() {
       <MainOne />
       <MainTwo />
       <PartnersSlide />
+      <ContactForm />
     </div>
   );
 }
