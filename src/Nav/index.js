@@ -8,9 +8,11 @@ import {
   useScrollTrigger,
   Slide,
   Container,
-  Link
 } from "@material-ui/core";
 import TriggerMenu from "./menu";
+import {
+  Link
+} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,8 +60,8 @@ const Nav = props => {
                 <AppBar className={classes.appBar}>
                 <Container>
                     <Toolbar className={classes.toolBar}>
-                    <Link className={classes.link} href="#">
-                        <Typography variant="h3">7io</Typography>
+                    <Link to="/" className={classes.link}>
+                      <Typography variant="h3">7io</Typography>
                     </Link>
                     <div className={classes.menu}>
                         <TriggerMenu />

@@ -2,7 +2,6 @@ import React from "react";
 import {
   Button,
   MenuItem,
-  Link,
   makeStyles,
   IconButton
 } from "@material-ui/core";
@@ -15,6 +14,10 @@ import Menu from "material-ui-popup-state/HoverMenu";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 //import useWindowWidth from "../utils/hooks/WindowWidth";
+// import {
+//   Link
+// } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -29,6 +32,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   buttonContact: {
+    color: 'white',
     marginLeft: 20,
     boxShadow: "none",
     backgroundColor: "transparent",
@@ -80,20 +84,24 @@ const TriggerMenu = props => {
     const menuItems = [
         {
         bindMenuProps: bindMenu(popupProduct),
+        pathSuffix: 'products',
         subMenu: [
             {
+            id: 'dataStorage',
             label: "Data Storage",
             menuProps: {
                 onClickFunction: e => popupProduct.close
             }
             },
             {
+            id: 'compliances',
             label: "Compliances",
             menuProps: {
                 onClickFunction: e => popupProduct.close
             }
             },
             {
+            id: 'cyberSecurity',
             label: "Cyber Security",
             menuProps: {
                 onClickFunction: e => popupProduct.close
@@ -217,16 +225,18 @@ const TriggerMenu = props => {
                 >
                 {
                     menuItem.subMenu.map((subMenuItem, keyB) => (
-                        <MenuItem
-                        key={keyB}
-                        onClick={
-                            subMenuItem.hasOwnProperty("menuProps")
-                            ? subMenuItem.menuProps.onClickFunction
-                            : null
-                        }
-                        >
-                        {subMenuItem.label}
-                        </MenuItem>
+                        <Link smooth to={`${menuItem.pathSuffix}#${subMenuItem.id}`} key={keyB} className={classes.link}>
+                            <MenuItem
+                            onClick={
+                                subMenuItem.hasOwnProperty("menuProps")
+                                ? subMenuItem.menuProps.onClickFunction()
+                                : null
+                            }
+                            >
+                            {subMenuItem.label}
+                            </MenuItem>
+                        </Link>
+                       
                     ))
                 }
                 </Menu>
@@ -237,41 +247,39 @@ const TriggerMenu = props => {
     return (
         <>
         <div className={classes.sectionDesktop}>
-            <Button className={classes.button} variant="contained">
-                <Link className={classes.link} href="#">
+            <Link to="/" className={classes.link}>
+                <Button className={classes.button} variant="contained">
                     Home
-                </Link>
-            </Button>
-            <Button
-            className={classes.button}
-            variant="contained"
-            endIcon={<ArrowDropDownIcon />}
-            {...bindHover(popupProduct)}
-            >
-                <Link className={classes.link} href="#">
+                </Button>
+            </Link>
+            <Link to="/products" className={classes.link}>
+                <Button className={classes.button} 
+                variant="contained"
+                endIcon={<ArrowDropDownIcon />}
+                {...bindHover(popupProduct)}
+                >
                     Products
-                </Link>
-            </Button>
-            <Button
-            className={classes.button}
-            variant="contained"
-            endIcon={<ArrowDropDownIcon />}
-            {...bindHover(popupServices)}
-            >
-                <Link className={classes.link} href="#">
+                </Button>
+            </Link>
+            <Link to="/services" className={classes.link}>
+                <Button className={classes.button} 
+                variant="contained"
+                endIcon={<ArrowDropDownIcon />}
+                {...bindHover(popupServices)}
+                >
                     Services
-                </Link>
-            </Button>
-            <Button className={classes.button} variant="contained">
-                <Link className={classes.link} href="#">
+                </Button>
+            </Link>
+            <Link to="/about" className={classes.link}>
+                <Button className={classes.button} variant="contained">
                     About
-                </Link>
-            </Button>
-            <Button className={classes.buttonContact} variant="contained">
-                <Link className={classes.link} href="#">
+                </Button>
+            </Link>
+            <Link to="/contact" className={classes.link}>
+                <Button className={classes.buttonContact} variant="contained">
                     Contact Us
-                </Link>
-            </Button>
+                </Button>
+            </Link>
             {renderMenuItems(menuItems)}
         </div>
 

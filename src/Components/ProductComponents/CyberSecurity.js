@@ -13,22 +13,20 @@ import {
 
 const useStyles = makeStyles({
   outer: {
-    backgroundColor: "#F2F2F7",
-    padding: 50,
+    backgroundColor: "",
+    paddingTop: 50,
+    paddingBottom: 50,
     height: "auto",
     width: "100%"
   },
   container: {
-    margin: "100px auto"
+    margin: "50px auto"
   },
   card: {
     boxShadow: "none",
     height: "100%",
     borderRadius: 10,
-    textAlign: "center",
-    "&:hover": {
-      backgroundColor: "#FEFDFF"
-    }
+    textAlign: "center"
   },
   media: {
     height: 140
@@ -57,34 +55,40 @@ const useStyles = makeStyles({
   }
 });
 
-const MainTwo = () => {
+const CyberSecurity = () => {
   const classes = useStyles();
 
   const cardItems = [
     {
-      img: require("../img/mainFOE1.svg"),
-      title: "Transparency",
+      img: require("../../img/mainFOE1.svg"),
+      title: "Finance",
       content:
-        "When we offer our services and solutions, as well as the services from our service providers, we do this in a transparent manner and we apply the same fee structure as our service providers."
+        "Fundraising, exchange listings, banking software and tokenization of assets."
     },
     {
-      img: require("../img/mainFOE2.svg"),
-      title: "Long-term relationships",
+      img: require("../../img/mainFOE2.svg"),
+      title: "IT",
       content:
-        "We believe in forming valuable long-term relationships in which we establish growth and continue to improve and innovate together."
+        "Cyber security audits, PoC architectures, data storage, DLT and complex problem solving."
     },
     {
-      img: require("../img/mainFOE1.svg"),
-      title: "Turnkey solutions",
+      img: require("../../img/mainFOE1.svg"),
+      title: "Legal",
       content:
-        "We are defined as a solution driven company rather than a reselling company. By combining innovative products with a high level of expertise, we are able to offer state-of-the-art solutions that are custom made and easy to implement."
+        "Corporate governance, ESG, regulations, contract law and robust corporate structures."
+    },
+    {
+      img: require("../../img/mainFOE3.svg"),
+      title: "Compliance",
+      content:
+        "AML and KYC platform, Cryptocurrency forensic software, Consultancy in Cryptocurrency regulations, MIFIDii, AMLD5, GDPR."
     }
   ];
 
   const renderCardItems = cardItems => {
-    return cardItems.map((cardItem, key) => {
+    return cardItems.map((cardItem, keyC) => {
       return (
-        <Grid item xs={12} sm={6} md={4} key={key}>
+        <Grid item xs={12} sm={6} md={3} key={keyC}>
           <CardActionArea className={classes.card}>
             <Card className={classes.card}>
               <CardMedia
@@ -111,7 +115,7 @@ const MainTwo = () => {
   };
 
   return (
-    <div className={classes.outer}>
+    <div className={classes.outer} id={'cyberSecurity'}>
       <Container className={classes.container}>
         <Typography
           gutterBottom
@@ -119,7 +123,7 @@ const MainTwo = () => {
           variant="h2"
           component="h1"
         >
-          What we stand for
+          Field of expertise
         </Typography>
         <Grid container spacing={1}>
           {renderCardItems(cardItems)}
@@ -132,4 +136,4 @@ const MainTwo = () => {
   );
 };
 
-export default MainTwo;
+export default CyberSecurity;

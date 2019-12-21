@@ -13,19 +13,23 @@ import {
 
 const useStyles = makeStyles({
   outer: {
-    backgroundColor: "",
-    padding: 50,
+    backgroundColor: "#F2F2F7",
+    paddingTop: 50,
+    paddingBottom: 50,
     height: "auto",
     width: "100%"
   },
   container: {
-    margin: "50px auto"
+    margin: "100px auto"
   },
   card: {
     boxShadow: "none",
     height: "100%",
     borderRadius: 10,
-    textAlign: "center"
+    textAlign: "center",
+    "&:hover": {
+      backgroundColor: "#FEFDFF"
+    }
   },
   media: {
     height: 140
@@ -54,40 +58,34 @@ const useStyles = makeStyles({
   }
 });
 
-const MainOne = () => {
+const MainTwo = () => {
   const classes = useStyles();
 
   const cardItems = [
     {
-      img: require("../img/mainFOE1.svg"),
-      title: "Finance",
+      img: require("../../img/mainFOE1.svg"),
+      title: "Transparency",
       content:
-        "Fundraising, exchange listings, banking software and tokenization of assets."
+        "When we offer our services and solutions, as well as the services from our service providers, we do this in a transparent manner and we apply the same fee structure as our service providers."
     },
     {
-      img: require("../img/mainFOE2.svg"),
-      title: "IT",
+      img: require("../../img/mainFOE2.svg"),
+      title: "Long-term relationships",
       content:
-        "Cyber security audits, PoC architectures, data storage, DLT and complex problem solving."
+        "We believe in forming valuable long-term relationships in which we establish growth and continue to improve and innovate together."
     },
     {
-      img: require("../img/mainFOE1.svg"),
-      title: "Legal",
+      img: require("../../img/mainFOE1.svg"),
+      title: "Turnkey solutions",
       content:
-        "Corporate governance, ESG, regulations, contract law and robust corporate structures."
-    },
-    {
-      img: require("../img/mainFOE3.svg"),
-      title: "Compliance",
-      content:
-        "AML and KYC platform, Cryptocurrency forensic software, Consultancy in Cryptocurrency regulations, MIFIDii, AMLD5, GDPR."
+        "We are defined as a solution driven company rather than a reselling company. By combining innovative products with a high level of expertise, we are able to offer state-of-the-art solutions that are custom made and easy to implement."
     }
   ];
 
   const renderCardItems = cardItems => {
-    return cardItems.map((cardItem, keyC) => {
+    return cardItems.map((cardItem, key) => {
       return (
-        <Grid item xs={12} sm={6} md={3} key={keyC}>
+        <Grid item xs={12} sm={6} md={4} key={key}>
           <CardActionArea className={classes.card}>
             <Card className={classes.card}>
               <CardMedia
@@ -122,7 +120,7 @@ const MainOne = () => {
           variant="h2"
           component="h1"
         >
-          Field of expertise
+          What we stand for
         </Typography>
         <Grid container spacing={1}>
           {renderCardItems(cardItems)}
@@ -135,4 +133,4 @@ const MainOne = () => {
   );
 };
 
-export default MainOne;
+export default MainTwo;

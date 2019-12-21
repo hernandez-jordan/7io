@@ -7,22 +7,31 @@ import {
   Typography,
   Button
 } from "@material-ui/core";
-import { styled } from "@material-ui/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
     "& > *": {
       margin: theme.spacing(2),
       width: 250,
-      [theme.breakpoints.down("xs")]: {
-        width: 200
+      [theme.breakpoints.up("md")]: {
+        width: 350,
       }
     }
   },
+  textFieldMessage:{
+    width: 535,
+      [theme.breakpoints.up("md")]: {
+        width: 735,
+      },
+      [theme.breakpoints.down("xs")]: {
+        width: 250,
+      },
+  },    
   outer: {
     textAlign: "center",
     backgroundColor: "white",
-    padding: 50,
+    paddingTop: 50,
+    paddingBottom: 50,
     height: "auto",
     width: "100%"
   },
@@ -66,22 +75,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const StyledTextField = styled(TextField)`
-  label.Mui-focused {
-    color: green;
-  }
-  .MuiOutlinedInput-root {
-    fieldset {
-      border-color: red;
-    }
-    &:hover fieldset {
-      border-color: yellow;
-    }
-    &.Mui-focused fieldset {
-      border-color: green;
-    }
-  }
-`;
 
 const fieldOfInterest = [
   {
@@ -123,11 +116,11 @@ const ContactForm = () => {
         </Typography>
         <form
           className={classes.root}
-          style={{ maxWidth: 600, margin: "auto" }}
+          style={{ maxWidth: 800, margin: "auto" }}
           noValidate
           autoComplete="off"
         >
-          <StyledTextField label="First Name" variant="outlined" />
+          <TextField label="First Name" variant="outlined" />
           <TextField label="Last Name" variant="outlined" />
           <TextField label="Email" variant="outlined" />
           <TextField label="Phone Number" variant="outlined" />
@@ -147,14 +140,15 @@ const ContactForm = () => {
               </MenuItem>
             ))}
           </TextField>
-        {/* <TextFieldA
-            id="outlined-multiline-static"
-            label="Multiline"
-            multiline
-            rows="4"
-            placeholder="Your message here.."
-            variant="outlined"
-        /> */}
+            <TextField
+                id="outlined-multiline-static"
+                label="Your Message"
+                multiline
+                rows="4"
+                placeholder="Your message here.."
+                variant="outlined"
+                className={classes.textFieldMessage}
+            />
           <Button size="medium" className={classes.button}>
             Send
           </Button>

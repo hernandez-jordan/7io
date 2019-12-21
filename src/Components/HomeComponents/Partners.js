@@ -51,22 +51,22 @@ const PartnersSlide = () => {
   
   const tileData = [
   {
-    img: require("../img/partner1.svg"),
+    img: require("../../img/partner1.svg"),
     title: "Tribeca",
     author: "Tribeca"
   },
   {
-    img: require("../img/partner2.svg"),
+    img: require("../../img/partner2.svg"),
     title: "Wasabi",
     author: "Wasabi"
   },
   {
-    img: require("../img/partner3.svg"),
+    img: require("../../img/partner3.svg"),
     title: "Tribeca",
     author: "Tribeca"
   },
   {
-    img: require("../img/partner4.svg"),
+    img: require("../../img/partner4.svg"),
     title: "Wasabi",
     author: "Wasabi"
   }

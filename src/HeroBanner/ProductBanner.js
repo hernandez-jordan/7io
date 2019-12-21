@@ -2,6 +2,9 @@ import React from "react";
 import { makeStyles, Container, Button } from "@material-ui/core";
 import BannerBackground3 from "../img/bannerBackground3.png";
 import PhoneIcon from "@material-ui/icons/Phone";
+import {
+  Link
+} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,6 +20,13 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: "#331D48",
       border: "2px solid white"
+    }
+  },
+  link: {
+    color: "white",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none"
     }
   },
   container: {
@@ -66,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const HeroBanner = () => {
+const ProductBanner = () => {
   const classes = useStyles();
   //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
 
@@ -77,18 +87,19 @@ const HeroBanner = () => {
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>
-          <h1>COMBINING THE BEST</h1>
-          <p>Specialized in combining Legal, Finance and IT</p>
-          <p>Reseller of unique and effective products</p>
-          <p>Custom solutions that are made to last</p>
-          <Button
+          <h1>DATA STORAGE</h1>
+          <p>By combining a new S3 compatible cloud storage solution</p>
+          <p>with a local drive for windows, accessing and using your</p>
+          <p>data becomes affordable and effortless.</p>
+          <Link to="/contact" className={classes.link}>
+            <Button className={classes.button} 
             variant="contained"
-            className={classes.button}
             startIcon={<PhoneIcon />}
-          >
-            Contact Us
-          </Button>
-        </div>
+            >
+              Contact Us
+            </Button>
+          </Link>
+          </div>
         {/* <div style={{ width: '30vw'}}></div> */}
         {/* <div className={classes.heroImage2} style={{backgroundImage :`url(${BannerBackground2})`}}></div> */}
       </Container>
@@ -96,4 +107,4 @@ const HeroBanner = () => {
   );
 };
 
-export default HeroBanner;
+export default ProductBanner;
