@@ -13,11 +13,8 @@ import {
 import Menu from "material-ui-popup-state/HoverMenu";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-//import useWindowWidth from "../utils/hooks/WindowWidth";
-// import {
-//   Link
-// } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
+//import useWindowWidth from '../utils/hooks/WindowWidth';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -44,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   link: {
-    color: "white",
+    color: "black",
     textDecoration: "none",
     "&:hover": {
       textDecoration: "none"
@@ -81,8 +78,10 @@ const TriggerMenu = props => {
         popupId: "Mobile" 
     });
 
+    
+
     const menuItems = [
-        {
+        { 
         bindMenuProps: bindMenu(popupProduct),
         pathSuffix: 'products',
         subMenu: [
@@ -111,26 +110,31 @@ const TriggerMenu = props => {
         },
         {
         bindMenuProps: bindMenu(popupServices),
+        pathSuffix: 'services',
         subMenu: [
             {
+            id: 'services',
             label: "Corporate Governance",
             menuProps: {
                 onClickFunction: e => popupServices.close
             }
             },
             {
+            id: 'services',
             label: "IT",
             menuProps: {
                 onClickFunction: e => popupServices.close
             }
             },
             {
+            id: 'services',
             label: "Compliances",
             menuProps: {
                 onClickFunction: e => popupServices.close
             }
             },
             {
+            id: 'services',
             label: "Financing",
             menuProps: {
                 onClickFunction: e => popupServices.close
@@ -213,6 +217,10 @@ const TriggerMenu = props => {
         }
     ];
 
+    console.log(menuItems[2].subMenu.map(subMenuItems => {
+        return subMenuItems
+    }));
+
     const renderMenuItems = menuItems => {
         return menuItems.map((menuItem, key) => {
             return (
@@ -224,25 +232,27 @@ const TriggerMenu = props => {
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
                 >
                 {
+                    
                     menuItem.subMenu.map((subMenuItem, keyB) => (
-                        <Link smooth to={`${menuItem.pathSuffix}#${subMenuItem.id}`} key={keyB} className={classes.link}>
-                            <MenuItem
+                        <MenuItem
+                            key={keyB}
                             onClick={
                                 subMenuItem.hasOwnProperty("menuProps")
                                 ? subMenuItem.menuProps.onClickFunction()
                                 : null
                             }
-                            >
-                            {subMenuItem.label}
-                            </MenuItem>
-                        </Link>
-                       
+                        > 
+                            <Link smooth to={`${menuItem.pathSuffix}#${subMenuItem.id}`}  className={classes.link}>
+                                {subMenuItem.label}
+                            </Link>
+                        </MenuItem>
                     ))
                 }
                 </Menu>
             );
         });
     };
+
 
     return (
         <>

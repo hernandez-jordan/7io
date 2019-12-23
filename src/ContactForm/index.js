@@ -54,25 +54,6 @@ const useStyles = makeStyles(theme => ({
       border: "2px solid white"
     }
   },
-  textFieldArea: {
-    textAlign: "left",
-    "& $notchedOutline": {
-      border: "1px solid #4A90E2"
-    },
-    "&:hover": {
-      border: "#fff"
-    },
-    textField: {
-      MuiOutlinedInput: {
-        root: {
-          "&$focused $notchedOutline": {
-            borderColor: "green",
-            borderWidth: 1
-          }
-        }
-      }
-    }
-  }
 }));
 
 
@@ -132,7 +113,6 @@ const ContactForm = () => {
             onChange={handleChange}
             helperText="Please select your Field of Interest"
             variant="outlined"
-            className={classes.textFieldArea}
           >
             {fieldOfInterest.map((option, key) => (
               <MenuItem key={key} value={option.value}>
