@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     display: "flex",
-    height: "100vh",
+    height: 'auto',
     width: "100%",
     position: "relative"
   },
@@ -47,33 +47,21 @@ const useStyles = makeStyles(theme => ({
     }
   },
   heroImage: {
-    height: "auto",
-    width: "100vw",
+    height: 800,
+    width: "100%",
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    marginBottom: 20,
-    [theme.breakpoints.up("sm")]: {
-      height: "800px"
+
+    [theme.breakpoints.down("xs")]: {
+      height: 550,
     }
   },
-  heroImage2: {
-    //height: 'calc(300px + 25vh)',
-    width: "calc(55vw - 5vw)",
-    backgroundPosition: "left",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    marginLeft: "40vw",
-    //marginLeft: 'calc(20px + 5vh)',
-    //marginTop: 'calc(40vh + 5vh)',
-    [theme.breakpoints.down("xs")]: {
-      //height: 'calc(150px + 25vh)',
-      //paddingTop: 200,
-      width: "90vw",
-      backgroundPosition: "center",
-      marginLeft: "20vw"
-    }
-  }
+  heroContainer: {
+    height: 700,
+    width: '100%',
+    overflow: 'auto',
+  },
 }));
 
 const HeroBanner = () => {
@@ -81,30 +69,33 @@ const HeroBanner = () => {
   //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
 
   return (
-    <div
-      className={classes.heroImage}
-      style={{ backgroundImage: `url(${BannerBackground3})` }}
-    >
-      <Container className={classes.container}>
-        <div className={classes.slogan}>
-          <h1>COMBINING THE BEST</h1>
-          <p>Specialized in combining Legal, Finance and IT</p>
-          <p>Reseller of unique and effective products</p>
-          <p>Custom solutions that are made to last</p>
-          
-          <Link to="/contact" className={classes.link}>
-            <Button className={classes.button} 
-            variant="contained"
-            startIcon={<PhoneIcon />}
-            >
-              Contact Us
-            </Button>
-          </Link>
-          </div>
-        {/* <div style={{ width: '30vw'}}></div> */}
-        {/* <div className={classes.heroImage2} style={{backgroundImage :`url(${BannerBackground2})`}}></div> */}
-      </Container>
-    </div>
+  <div>
+    <div id="heroBanner">
+        <div
+            className={classes.heroImage}
+            style={{ backgroundImage: `url(${BannerBackground3})` }}
+          >
+          <Container className={classes.container}>
+            <div className={classes.slogan}>
+              <h1>COMBINING THE BEST</h1>
+              <p>Specialized in combining Legal, Finance and IT</p>
+              <p>Reseller of unique and effective products</p>
+              <p>Custom solutions that are made to last</p>
+              <Link to="/contact" className={classes.link}>
+                <Button className={classes.button} 
+                variant="contained"
+                startIcon={<PhoneIcon />}
+                >
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
+          </Container>
+        </div>
+      </div>
+  </div>
+    
+      
   );
 };
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import GenericPage from "../Pages/common/GenericPage";
-import HomeSections from '../Components/HomeComponents';
+import ContactSections from '../Components/Contact';
 
 const Contact = () => {
   return (
       <GenericPage>
-        <HomeSections />
+        <ContactSections />
       </GenericPage>
   );
 }

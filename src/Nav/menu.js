@@ -14,7 +14,6 @@ import Menu from "material-ui-popup-state/HoverMenu";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { HashLink as Link } from 'react-router-hash-link';
-//import useWindowWidth from '../utils/hooks/WindowWidth';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -63,6 +62,7 @@ const useStyles = makeStyles(theme => ({
   test: {}
 }));
 
+
 const TriggerMenu = props => {
     const classes = useStyles();
     const popupProduct = usePopupState({
@@ -78,7 +78,6 @@ const TriggerMenu = props => {
         popupId: "Mobile" 
     });
 
-    
 
     const menuItems = [
         { 
@@ -257,7 +256,11 @@ const TriggerMenu = props => {
     return (
         <>
         <div className={classes.sectionDesktop}>
-            <Link to="/" className={classes.link}>
+            <Link 
+                to="/#heroContainer" 
+                className={classes.link}
+                scroll={el => el.scrollIntoView({ behavior: 'instant', block: 'end' })}
+                >
                 <Button className={classes.button} variant="contained">
                     Home
                 </Button>
@@ -285,7 +288,11 @@ const TriggerMenu = props => {
                     About
                 </Button>
             </Link>
-            <Link to="/contact" className={classes.link}>
+            <Link 
+                to="/contact#contactBanner" 
+                className={classes.link}
+                scroll={el => el.scrollIntoView({ behavior: 'instant', block: 'end' })}
+                >
                 <Button className={classes.buttonContact} variant="contained">
                     Contact Us
                 </Button>
