@@ -1,7 +1,7 @@
 import React from "react";
-import MainOne from '../HomeComponents/MainOne';
-import MainTwo from '../HomeComponents/MainTwo';
-import PartnersSlide from '../HomeComponents/Partners';
+import MainOne from '../Home/MainOne';
+import MainTwo from '../Home/MainTwo';
+import PartnersSlide from '../Home/Partners';
 import ContactForm from '../../ContactForm';
 import HeroBanner from '../../HeroBanner';
 
