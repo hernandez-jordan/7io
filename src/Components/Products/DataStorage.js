@@ -3,7 +3,6 @@ import {
   makeStyles,
   Card,
   CardActionArea,
-  CardContent,
   CardMedia,
   Button,
   Typography,
@@ -55,7 +54,7 @@ const useStyles = makeStyles({
   }
 });
 
-const CyberSecurity = () => {
+const DataStorage = () => {
   const classes = useStyles();
 
   const cardItems = [
@@ -99,14 +98,6 @@ const CyberSecurity = () => {
                 alt={cardItem.title}
                 title={cardItem.title}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {cardItem.title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {cardItem.content}
-                </Typography>
-              </CardContent>
             </Card>
           </CardActionArea>
         </Grid>
@@ -115,7 +106,7 @@ const CyberSecurity = () => {
   };
 
   return (
-    <div className={classes.outer} id={'cyberSecurity'}>
+    <div className={classes.outer}>
       <Container className={classes.container}>
         <Typography
           gutterBottom
@@ -123,7 +114,7 @@ const CyberSecurity = () => {
           variant="h2"
           component="h1"
         >
-          Field of expertise
+          DATA STORAGE
         </Typography>
         <Grid container spacing={1}>
           {renderCardItems(cardItems)}
@@ -136,4 +127,4 @@ const CyberSecurity = () => {
   );
 };
 
-export default CyberSecurity;
+export default DataStorage;

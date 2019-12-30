@@ -30,20 +30,24 @@ const useStyles = makeStyles(theme => ({
     }
   },
   container: {
-    display: "flex",
     height: 'auto',
     width: "100%",
-    position: "relative"
+    position: "relative",[theme.breakpoints.down("sm")]: {
+      textAlign: 'center',
+      paddingTop: 100,
+    }
   },
   slogan: {
-    position: "absolute",
-    top: "120px",
     color: "white",
     fontFamily: "Montserrat",
     fontSize: "1.2em",
+    paddingTop: 120,
     [theme.breakpoints.down("xs")]: {
-      top: "100px",
-      fontSize: "0.9em"
+      fontSize: "0.9em",
+      paddingTop: 10,
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 10,
     }
   },
   heroImage: {

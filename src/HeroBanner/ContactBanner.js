@@ -21,8 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("sm")]: {
       display:'none',
-    }
-    
+    },
   },
   link: {
     color: "white",
@@ -42,11 +41,8 @@ const useStyles = makeStyles(theme => ({
       display:'flow-root',
       textAlign: 'center',
     }
-
   },
   slogan: {
-    // position: "absolute",
-    // top: "120px",
     color: "white",
     fontFamily: "Montserrat",
     fontSize: "1.2em",
@@ -68,7 +64,6 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
     [theme.breakpoints.up("md")]: {
-      
     }
   },
   heroBackground: {
@@ -84,10 +79,8 @@ const useStyles = makeStyles(theme => ({
     width: '50%',
     padding: 50,
     paddingRight: 50,
-    [theme.breakpoints.up("me")]: {
-      
+    [theme.breakpoints.up("me")]: { 
     }
-
   },
   
 }));

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductSections from '../Components/Product';
+import ProductSections from '../Components/Products';
 import GenericPage from '../Pages/common/GenericPage';
 
 
