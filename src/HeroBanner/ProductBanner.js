@@ -30,31 +30,34 @@ const useStyles = makeStyles(theme => ({
     }
   },
   container: {
-    display: "flex",
     height: "100vh",
     width: "100%",
-    position: "relative"
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 100,
+      textAlign: 'center',
+    }
   },
   slogan: {
-    position: "absolute",
-    top: "120px",
     color: "white",
     fontFamily: "Montserrat",
     fontSize: "1.2em",
+    paddingTop: 120,
     [theme.breakpoints.down("xs")]: {
-      top: "100px",
-      fontSize: "0.9em"
+      fontSize: "0.9em",
+      paddingTop: 10,
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 10,
     }
   },
   heroImage: {
-    height: "auto",
-    width: "100vw",
+    height: 800,
+    width: "100%",
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    marginBottom: 20,
-    [theme.breakpoints.up("sm")]: {
-      height: "800px"
+    [theme.breakpoints.down("xs")]: {
+      height: 550,
     }
   },
   heroImage2: {

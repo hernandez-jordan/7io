@@ -41,6 +41,26 @@ const menuItems = [
     pathSuffix: '/products',
     menu: 'Products',
     icon: <CloudCircleIcon />,
+    subMenu: [
+      {
+        id: "dataStorage",
+        menuProps: {
+          //onClickFunction: e => handleClick
+        }
+      },
+      {
+        id: "cyberSecurity",
+        menuProps: {
+          //onClickFunction: e => handleClick
+        }
+      },
+      {
+        id: "compliance",
+        menuProps: {
+          //onClickFunction: e => handleClick
+        }
+      },
+    ]
   },
   {
     pathSuffix: '/services',

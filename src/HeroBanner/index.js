@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     height: 'auto',
     width: "100%",
-    position: "relative",[theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("sm")]: {
       textAlign: 'center',
       paddingTop: 100,
     }
@@ -56,7 +56,6 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-
     [theme.breakpoints.down("xs")]: {
       height: 550,
     }

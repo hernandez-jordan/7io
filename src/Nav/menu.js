@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, MenuItem, makeStyles, } from "@material-ui/core";
+import { Button, MenuItem, makeStyles } from "@material-ui/core";
 import {
   usePopupState,
   bindHover,
@@ -9,7 +9,7 @@ import Menu from "material-ui-popup-state/HoverMenu";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { HashLink as Link } from "react-router-hash-link";
 import useWindowWidth from "../utils/hooks/WindowWidth";
-import MobileMenu from '../Nav/MobileMenu';
+import MobileMenu from "../Nav/MobileMenu";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       display: "flex"
     }
-  },
+  }
 }));
 
 const TriggerMenu = props => {
@@ -85,15 +85,15 @@ const TriggerMenu = props => {
           }
         },
         {
-          id: "compliances",
-          label: "Compliances",
+          id: "cyberSecurity",
+          label: "Cyber Security",
           menuProps: {
             onClickFunction: e => popupProduct.close
           }
         },
         {
-          id: "cyberSecurity",
-          label: "Cyber Security",
+          id: "compliances",
+          label: "Compliances",
           menuProps: {
             onClickFunction: e => popupProduct.close
           }
@@ -209,7 +209,8 @@ const TriggerMenu = props => {
     }
   ];
 
-  const renderDesktopMenu = () => menuItems.map((menuItem, key) => {
+  const renderDesktopMenu = () =>
+    menuItems.map((menuItem, key) => {
       return (
         <Menu
           key={key}
@@ -244,69 +245,73 @@ const TriggerMenu = props => {
   const isDesktop = windowWidth >= 960;
   const renderMobileMenu = () => <MobileMenu />;
 
+  // const countdown = (value) => {
+  //   if (value > 0) {
+  //       console.log(value);
+  //       return countdown(value - 1);
+  //   } else {
+  //       return value;
+  //   }
+  // };
+  // countdown(10);
 
   return (
     <>
       <div>
-       
-        { isDesktop && (
+        {isDesktop && (
           <>
-          <Link
-          to="/#heroContainer"
-          className={classes.link}
-          scroll={el =>
-            el.scrollIntoView({ behavior: "instant", block: "end" })
-          }
-        >
-          <Button className={classes.button} variant="contained">
-            Home
-          </Button>
-        </Link>
-        <Link to="/products" className={classes.link}>
-          <Button
-            className={classes.button}
-            variant="contained"
-            endIcon={<ArrowDropDownIcon />}
-            {...bindHover(popupProduct)}
-          >
-            Products
-          </Button>
-        </Link>
-        <Link to="/services" className={classes.link}>
-          <Button
-            className={classes.button}
-            variant="contained"
-            endIcon={<ArrowDropDownIcon />}
-            {...bindHover(popupServices)}
-          >
-            Services
-          </Button>
-        </Link>
-        <Link to="/about" className={classes.link}>
-          <Button className={classes.button} variant="contained">
-            About
-          </Button>
-        </Link>
-        <Link
-          to="/contact#contactBanner"
-          className={classes.link}
-          scroll={el =>
-            el.scrollIntoView({ behavior: "instant", block: "end" })
-          }
-        >
-          <Button className={classes.buttonContact} variant="contained">
-            Contact Us
-          </Button>
-        </Link>
-        {renderDesktopMenu()}
-        </>
-        ) }
-      </div>
-        {!isDesktop && (
-            <div>
-              {renderMobileMenu()}
-            </div>
+            <Link
+              to="/#heroContainer"
+              className={classes.link}
+              scroll={el =>
+                el.scrollIntoView({ behavior: "instant", block: "end" })
+              }
+            >
+              <Button className={classes.button} variant="contained">
+                Home
+              </Button>
+            </Link>
+            <Link to="/products" className={classes.link}>
+              <Button
+                className={classes.button}
+                variant="contained"
+                endIcon={<ArrowDropDownIcon />}
+                {...bindHover(popupProduct)}
+              >
+                Products
+              </Button>
+            </Link>
+            <Link to="/services" className={classes.link}>
+              <Button
+                className={classes.button}
+                variant="contained"
+                endIcon={<ArrowDropDownIcon />}
+                {...bindHover(popupServices)}
+              >
+                Services
+              </Button>
+            </Link>
+            <Link to="/about" className={classes.link}>
+              <Button className={classes.button} variant="contained">
+                About
+              </Button>
+            </Link>
+            <Link
+              to="/contact#contactBanner"
+              className={classes.link}
+              scroll={el =>
+                el.scrollIntoView({ behavior: "instant", block: "end" })
+              }
+            >
+              <Button className={classes.buttonContact} variant="contained">
+                Contact Us
+              </Button>
+            </Link>
+            {renderDesktopMenu()}
+          </>
         )}
+      </div>
+      {!isDesktop && <div>{renderMobileMenu()}</div>}
     </>
   );
 };

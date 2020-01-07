@@ -31,14 +31,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   container: {
-    display: "flex",
-    flexDirection: 'row',
-    height: "100%",
+    height: "auto",
     width: "100%",
-    justifyContent: 'space-between',
     [theme.breakpoints.down("sm")]: {
       paddingTop: 50,
-      display:'flow-root',
       textAlign: 'center',
     }
   },
