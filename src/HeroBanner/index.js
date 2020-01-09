@@ -1,14 +1,19 @@
 import React from "react";
-import { makeStyles, Container, Button } from "@material-ui/core";
+import { makeStyles, Container, Button, Typography } from "@material-ui/core";
 import BannerBackground3 from "../img/bannerBackground3.png";
 import PhoneIcon from "@material-ui/icons/Phone";
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
+  },
+  title: {
+    fontWeight: "bold",
+    color: "white"
+  },
+  subTitle: {
+    color: "white"
   },
   button: {
     color: "white",
@@ -30,11 +35,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   container: {
-    height: 'auto',
+    height: "auto",
     width: "100%",
     [theme.breakpoints.down("sm")]: {
-      textAlign: 'center',
-      paddingTop: 100,
+      textAlign: "center",
+      paddingTop: 100
     }
   },
   slogan: {
@@ -42,12 +47,13 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Montserrat",
     fontSize: "1.2em",
     paddingTop: 120,
+    lineHeight: "2em",
     [theme.breakpoints.down("xs")]: {
       fontSize: "0.9em",
-      paddingTop: 10,
+      paddingTop: 10
     },
     [theme.breakpoints.down("sm")]: {
-      paddingTop: 10,
+      paddingTop: 10
     }
   },
   heroImage: {
@@ -57,14 +63,14 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     [theme.breakpoints.down("xs")]: {
-      height: 550,
+      //height: 550
     }
   },
   heroContainer: {
     height: 700,
-    width: '100%',
-    overflow: 'auto',
-  },
+    width: "100%",
+    overflow: "auto"
+  }
 }));
 
 const HeroBanner = () => {
@@ -72,22 +78,34 @@ const HeroBanner = () => {
   //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
 
   return (
-  <div>
-    <div id="heroBanner">
+    <div>
+      <div id="heroBanner">
         <div
-            className={classes.heroImage}
-            style={{ backgroundImage: `url(${BannerBackground3})` }}
-          >
+          className={classes.heroImage}
+          style={{ backgroundImage: `url(${BannerBackground3})` }}
+        >
           <Container className={classes.container}>
             <div className={classes.slogan}>
-              <h1>COMBINING THE BEST</h1>
-              <p>Specialized in combining Legal, Finance and IT</p>
-              <p>Reseller of unique and effective products</p>
-              <p>Custom solutions that are made to last</p>
+              <Typography gutterBottom className={classes.title} variant="h1">
+                7io
+              </Typography>
+              <Typography gutterBottom className={classes.title} variant="h3">
+                COMBINING THE BEST
+              </Typography>
+              <Typography
+                gutterBottom
+                className={classes.subTitle}
+                variant="subtitle1"
+              >
+                Specialized in combining Legal, Finance and IT <br />
+                Reseller of unique and effective products <br />
+                Custom solutions that are made to last <br />
+              </Typography>
               <Link to="/contact" className={classes.link}>
-                <Button className={classes.button} 
-                variant="contained"
-                startIcon={<PhoneIcon />}
+                <Button
+                  className={classes.button}
+                  variant="contained"
+                  startIcon={<PhoneIcon />}
                 >
                   Contact Us
                 </Button>
@@ -96,9 +114,7 @@ const HeroBanner = () => {
           </Container>
         </div>
       </div>
-  </div>
-    
-      
+    </div>
   );
 };
 

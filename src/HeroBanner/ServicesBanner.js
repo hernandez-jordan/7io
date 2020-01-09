@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
-import BannerBackground3 from "../img/bannerBackground3.png";
+import BannerBackground4 from "../img/bannerBackground4.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: "#331D48",
       border: "2px solid white"
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
     }
   },
   link: {
@@ -35,10 +38,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   container: {
-    height: "100vh",
+    height: "auto",
     width: "100%",
     [theme.breakpoints.down("sm")]: {
-      paddingTop: 100,
+      paddingTop: 50,
       textAlign: "center"
     }
   },
@@ -56,59 +59,53 @@ const useStyles = makeStyles(theme => ({
       paddingTop: 10
     }
   },
-  heroImage: {
-    height: 800,
-    width: "100%",
-    backgroundPosition: "top",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    [theme.breakpoints.down("xs")]: {
-      //height: 550
-    }
-  },
   heroImage2: {
-    //height: 'calc(300px + 25vh)',
-    width: "calc(55vw - 5vw)",
-    backgroundPosition: "left",
+    height: "100%",
+    width: "auto",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-    marginLeft: "40vw",
-    //marginLeft: 'calc(20px + 5vh)',
-    //marginTop: 'calc(40vh + 5vh)',
-    [theme.breakpoints.down("xs")]: {
-      //height: 'calc(150px + 25vh)',
-      //paddingTop: 200,
-      width: "90vw",
-      backgroundPosition: "center",
-      marginLeft: "20vw"
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    },
+    [theme.breakpoints.up("md")]: {}
+  },
+  heroBackground: {
+    width: "",
+    height: 600,
+    backgroundColor: "#331D48",
+    [theme.breakpoints.down("sm")]: {
+      height: 300
     }
+  },
+  imageContainer: {
+    height: "100%",
+    width: "50%",
+    padding: 50,
+    paddingRight: 50,
+    [theme.breakpoints.up("me")]: {}
   }
 }));
 
-const ProductBanner = () => {
+const ServicesBanner = () => {
   const classes = useStyles();
   //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
 
   return (
-    <div
-      className={classes.heroImage}
-      style={{ backgroundImage: `url(${BannerBackground3})` }}
-    >
+    <div className={classes.heroBackground} id="contactBanner">
       <Container className={classes.container}>
         <div className={classes.slogan}>
           <Typography gutterBottom className={classes.title} variant="h2">
-            DATA STORAGE
+            SERVICES
           </Typography>
           <Typography
             gutterBottom
             className={classes.subTitle}
             variant="subtitle1"
           >
-            By combining a new S3 compatible cloud storage solution <br />
-            with a local drive for windows, accessing and using your <br />
-            data becomes affordable and effortless <br />
+            Besides our solutions, we offer our services separately in which we <br/>
+            consult and help clients achieve what they desire.
           </Typography>
-          <Link to="/contact" className={classes.link}>
+          <Link smooth to="#contactContainer" className={classes.link}>
             <Button
               className={classes.button}
               variant="contained"
@@ -118,11 +115,15 @@ const ProductBanner = () => {
             </Button>
           </Link>
         </div>
-        {/* <div style={{ width: '30vw'}}></div> */}
-        {/* <div className={classes.heroImage2} style={{backgroundImage :`url(${BannerBackground2})`}}></div> */}
+        <div className={classes.imageContainer}>
+          <div
+            className={classes.heroImage2}
+            style={{ backgroundImage: `url(${BannerBackground4})` }}
+          ></div>
+        </div>
       </Container>
     </div>
   );
 };
 
-export default ProductBanner;
+export default ServicesBanner;

@@ -37,12 +37,21 @@ const useStyles = makeStyles(theme =>({
   cardMedia: {
     
   },
-  componentTitle: {
+  title: {
+    margin: "50px auto",
     textAlign: "center",
     fontWeight: "bold",
-    color: "#331D48"
+    color: "#331D48",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 'calc(0.5em + 10vw)',
+    },
   },
-  componentSubtitle: {
+  titleCloud: {
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "#331D48",
+  },
+  subtitle: {
     marginTop: 0,
     margin: "50px auto",
     textAlign: "center",
@@ -121,14 +130,14 @@ const DataStorage = () => {
       <Container className={classes.container} >
         <Typography
           gutterBottom
-          className={classes.componentTitle}
+          className={classes.title}
           variant="h2"
         >
           DATA STORAGE
         </Typography>
         <Typography
           gutterBottom
-          className={classes.componentSubtitle}
+          className={classes.subtitle}
           variant="subtitle2"
         >
           By combining a new S3 compatible cloud storage solution with a local
@@ -143,7 +152,7 @@ const DataStorage = () => {
           <Grid item xs={12} sm={6} md={6}>
             <Typography
               gutterBottom
-              className={classes.componentTitle}
+              className={classes.titleCloud}
               variant="h6"
             >
               Disruptive hot cloud storage

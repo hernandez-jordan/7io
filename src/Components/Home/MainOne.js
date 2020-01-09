@@ -11,7 +11,7 @@ import {
   Grid
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme=>({
   outer: {
     backgroundColor: "",
     paddingTop: 50,
@@ -34,11 +34,14 @@ const useStyles = makeStyles({
   cardMedia: {
     objectFit: "none"
   },
-  componentTitle: {
+  title: {
     margin: "50px auto",
     textAlign: "center",
     fontWeight: "bold",
-    color: "#331D48"
+    color: "#331D48",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 'calc(0.5em + 10vw)',
+    },
   },
   button: {
     color: "white",
@@ -53,7 +56,7 @@ const useStyles = makeStyles({
       border: "2px solid white"
     }
   }
-});
+}));
 
 const MainOne = () => {
   const classes = useStyles();
@@ -119,7 +122,7 @@ const MainOne = () => {
       <Container className={classes.container}>
         <Typography
           gutterBottom
-          className={classes.componentTitle}
+          className={classes.title}
           variant="h2"
           component="h1"
         >

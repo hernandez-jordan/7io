@@ -1,16 +1,15 @@
 import React from 'react';
-import HeroBanner from '../HeroBanner';
-import ContactForm from '../ContactForm';
+import ServicesSections from '../Components/Services';
 import GenericPage from '../Pages/common/GenericPage';
 
 
-const Products = () => {
+
+const Services = () => {
   return (
       <GenericPage>
-        <HeroBanner />
-        <ContactForm />
+        <ServicesSections />
       </GenericPage>
   );
 }
 
-export default Products;
+export default Services;

@@ -49,7 +49,10 @@ const useStyles = makeStyles(theme =>({
     margin: "50px auto",
     textAlign: "center",
     fontWeight: "bold",
-    color: "#331D48"
+    color: "#331D48",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 'calc(0.5em + 10vw)',
+    },
   },
   subtitle: {
     marginTop: 0,
