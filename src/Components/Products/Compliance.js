@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     objectFit: "none"
   },
   title: {
-    margin: "50px auto",
+    marginTop: 50,
     textAlign: "center",
     fontWeight: "bold",
     color: "white",
@@ -218,8 +218,8 @@ const Compliance = () => {
   };
 
   return (
-    <div className={classes.outer}>
-      <Container className={classes.container} id="compliances">
+    <div className={classes.outer} id="compliances" >
+      <Container className={classes.container} >
         <Typography gutterBottom className={classes.title} variant="h2">
           COMPLIANCE
         </Typography>

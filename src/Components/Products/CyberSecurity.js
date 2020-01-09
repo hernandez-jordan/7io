@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme =>({
     objectFit: "none"
   },
   title: {
-    margin: "50px auto",
+    marginTop: 50,
     textAlign: "center",
     fontWeight: "bold",
     color: "#331D48",
@@ -125,20 +125,19 @@ const CyberSecurity = () => {
                   Our team has participated in making the internet a cleaner and
                   safer place. The open sourced non-profit project of the
                   internet cleanup foundation has shown governmental
-                  institutions that their websites aren’t secure. <br /> <br />
+                  institutions that their websites aren’t secure.<br/>
                   After three years of development, and seeing the government
                   actively use the product, we noticed that there is great value
                   for the private sector as well. Multinationals and businesses
                   with a large collection of domains and subdomains should check
                   if their data and the data of their clients is managed
-                  properly.
-                  <br /> <br />
+                  properly.<br/><br/>
                   To show the rest of the company how your websites perform, we
                   have plotted the risk of your websites on a map that is
                   visible and understandable by all departments. This way your
                   complete company will sense the urge of improving your
-                  security.
-                  <br /> <br />
+                  security.<br/>
+                  
                 </Typography>
               </CardContent>
             </Card>
@@ -213,8 +212,8 @@ const CyberSecurity = () => {
   };
 
   return (
-    <div className={classes.outer}>
-      <Container className={classes.container} id="cyberSecurity">
+    <div className={classes.outer} id="cyberSecurity">
+      <Container className={classes.container} >
         <Typography gutterBottom className={classes.title} variant="h2">
           CYBER SECURITY
         </Typography>

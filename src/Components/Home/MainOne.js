@@ -10,8 +10,9 @@ import {
   Container,
   Grid
 } from "@material-ui/core";
+import { HashLink as Link } from "react-router-hash-link";
 
-const useStyles = makeStyles(theme=>({
+const useStyles = makeStyles(theme => ({
   outer: {
     backgroundColor: "",
     paddingTop: 50,
@@ -20,7 +21,8 @@ const useStyles = makeStyles(theme=>({
     width: "100%"
   },
   container: {
-    margin: "50px auto"
+    margin: "50px auto",
+    textAlign: "center",
   },
   card: {
     boxShadow: "none",
@@ -40,8 +42,8 @@ const useStyles = makeStyles(theme=>({
     fontWeight: "bold",
     color: "#331D48",
     [theme.breakpoints.down("xs")]: {
-      fontSize: 'calc(0.5em + 10vw)',
-    },
+      fontSize: "calc(0.5em + 10vw)"
+    }
   },
   button: {
     color: "white",
@@ -55,6 +57,9 @@ const useStyles = makeStyles(theme=>({
       backgroundColor: "#331D48",
       border: "2px solid white"
     }
+  },
+  link: {
+    textDecoration: "none",
   }
 }));
 
@@ -131,9 +136,17 @@ const MainOne = () => {
         <Grid container spacing={1}>
           {renderCardItems(cardItems)}
         </Grid>
-        <Button size="medium" className={classes.button}>
-          Read More
-        </Button>
+        <Link
+          to="services#servicesBanner"
+          className={classes.link}
+          scroll={el =>
+            el.scrollIntoView({ behavior: "instant", block: "end" })
+          }
+        >
+          <Button size="medium" className={classes.button} variant="contained">
+            Read More
+          </Button>
+        </Link>
       </Container>
     </div>
   );

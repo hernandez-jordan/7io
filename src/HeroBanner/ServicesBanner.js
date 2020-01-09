@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
-import BannerBackground4 from "../img/bannerBackground4.svg";
+import BannerBackgroundImage from "../img/bannerBackground11.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { HashLink as Link } from "react-router-hash-link";
 
@@ -10,7 +10,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontWeight: "bold",
-    color: "white"
+    color: "white",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "calc(0.5em + 10vw)"
+    }
   },
   subTitle: {
     color: "white"
@@ -41,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     height: "auto",
     width: "100%",
     [theme.breakpoints.down("sm")]: {
-      paddingTop: 50,
+      paddingTop: 100,
       textAlign: "center"
     }
   },
@@ -57,6 +60,17 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("sm")]: {
       paddingTop: 10
+    }
+  },
+  heroImage: {
+    height: 800,
+    width: "100%",
+    backgroundPosition: "top",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundColor: "#F5F5F9",
+    [theme.breakpoints.down("xs")]: {
+      //height: 550
     }
   },
   heroImage2: {
@@ -91,9 +105,16 @@ const ServicesBanner = () => {
   //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
 
   return (
-    <div className={classes.heroBackground} id="contactBanner">
+    <div
+      id="servicesBanner"
+      className={classes.heroImage}
+      style={{ backgroundImage: `url(${BannerBackgroundImage})` }}
+    >
       <Container className={classes.container}>
         <div className={classes.slogan}>
+          <Typography gutterBottom className={classes.title} variant="h1">
+            7io
+          </Typography>
           <Typography gutterBottom className={classes.title} variant="h2">
             SERVICES
           </Typography>
@@ -102,7 +123,8 @@ const ServicesBanner = () => {
             className={classes.subTitle}
             variant="subtitle1"
           >
-            Besides our solutions, we offer our services separately in which we <br/>
+            Besides our solutions, we offer our services separately in which we{" "}
+            <br />
             consult and help clients achieve what they desire.
           </Typography>
           <Link smooth to="#contactContainer" className={classes.link}>
@@ -118,7 +140,7 @@ const ServicesBanner = () => {
         <div className={classes.imageContainer}>
           <div
             className={classes.heroImage2}
-            style={{ backgroundImage: `url(${BannerBackground4})` }}
+            style={{ backgroundImage: `url(${BannerBackgroundImage})` }}
           ></div>
         </div>
       </Container>

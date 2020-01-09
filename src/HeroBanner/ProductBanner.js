@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
-import BannerBackground3 from "../img/bannerBackground3.png";
+import BannerBackground from "../img/bannerBackground11.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { Link } from "react-router-dom";
 
@@ -10,10 +10,13 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontWeight: "bold",
-    color: "white"
+    color: "white",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "calc(0.5em + 10vw)"
+    }
   },
   subTitle: {
-    color: "white"
+    color: "white",
   },
   button: {
     color: "white",
@@ -62,22 +65,18 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundColor: "fafafa",
     [theme.breakpoints.down("xs")]: {
       //height: 550
     }
   },
   heroImage2: {
-    //height: 'calc(300px + 25vh)',
     width: "calc(55vw - 5vw)",
     backgroundPosition: "left",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     marginLeft: "40vw",
-    //marginLeft: 'calc(20px + 5vh)',
-    //marginTop: 'calc(40vh + 5vh)',
     [theme.breakpoints.down("xs")]: {
-      //height: 'calc(150px + 25vh)',
-      //paddingTop: 200,
       width: "90vw",
       backgroundPosition: "center",
       marginLeft: "20vw"
@@ -87,15 +86,17 @@ const useStyles = makeStyles(theme => ({
 
 const ProductBanner = () => {
   const classes = useStyles();
-  //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
 
   return (
     <div
       className={classes.heroImage}
-      style={{ backgroundImage: `url(${BannerBackground3})` }}
+      style={{ backgroundImage: `url(${BannerBackground})` }}
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>
+          <Typography gutterBottom className={classes.title} variant="h1">
+            7io
+          </Typography>
           <Typography gutterBottom className={classes.title} variant="h2">
             DATA STORAGE
           </Typography>
@@ -118,8 +119,6 @@ const ProductBanner = () => {
             </Button>
           </Link>
         </div>
-        {/* <div style={{ width: '30vw'}}></div> */}
-        {/* <div className={classes.heroImage2} style={{backgroundImage :`url(${BannerBackground2})`}}></div> */}
       </Container>
     </div>
   );

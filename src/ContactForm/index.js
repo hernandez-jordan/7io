@@ -29,7 +29,6 @@ const useStyles = makeStyles(theme => ({
   },    
   outer: {
     textAlign: "center",
-    backgroundColor: "white",
     paddingTop: 50,
     paddingBottom: 50,
     height: "auto",

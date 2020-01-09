@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme =>({
     
   },
   title: {
-    margin: "50px auto",
+    marginTop: 50,
     textAlign: "center",
     fontWeight: "bold",
     color: "#331D48",
@@ -64,38 +64,6 @@ const useStyles = makeStyles(theme =>({
   }
 }));
 
-const cloudSubItems = [
-  {
-    subItem: 'NO EGRESS COSTS',
-  },
-  {
-    subItem: 'NO API CHARGES',
-  },
-  {
-    subItem: 'ONE TIER FITS ALL',
-  },
-  {
-    subItem: 'FLAT FEE OF $5,99 TB/M',
-  },
-  {
-    subItem: 'ENTERPRISE-CLASS SECURITY',
-  },
-  {
-    subItem: 'S3 COMPLIANT',
-  },
-  {
-    subItem: 'PRE-ESTIMATED SERVICE FEE',
-  },
-  {
-    subItem: '11x9s OF DATA DURABILITY',
-  },
-  {
-    subItem: 'FAST & SECURE DATA MIGRATION',
-  },
-  {
-    subItem: 'UP TO 6X THE SPEED OF AMAZON',
-  },
-]
 
 const DataStorage = () => {
   const classes = useStyles();
@@ -105,6 +73,39 @@ const DataStorage = () => {
       img: require("../../img/dataStorage.svg"),
     },
   ];
+
+  const cloudSubItems = [
+    {
+      subItem: 'NO EGRESS COSTS',
+    },
+    {
+      subItem: 'NO API CHARGES',
+    },
+    {
+      subItem: 'ONE TIER FITS ALL',
+    },
+    {
+      subItem: 'FLAT FEE OF $5,99 TB/M',
+    },
+    {
+      subItem: 'ENTERPRISE-CLASS SECURITY',
+    },
+    {
+      subItem: 'S3 COMPLIANT',
+    },
+    {
+      subItem: 'PRE-ESTIMATED SERVICE FEE',
+    },
+    {
+      subItem: '11x9s OF DATA DURABILITY',
+    },
+    {
+      subItem: 'FAST & SECURE DATA MIGRATION',
+    },
+    {
+      subItem: 'UP TO 6X THE SPEED OF AMAZON',
+    },
+  ]
 
   const renderCardItems = cardItems => {
     return cardItems.map((cardItem, key) => {
@@ -120,6 +121,29 @@ const DataStorage = () => {
               />
             </Card>
           
+        </Grid>
+      );
+    });
+  };
+
+  const renderSubItems = cloudSubItems => {
+    return cloudSubItems.map((cloudSubItem, key)=> {
+      return(
+        <Grid container spacing={1} key={key}>
+          <Grid item xs={2} sm={2} md={2}>
+          </Grid>
+          <Grid item xs={2} sm={2} md={2}>
+            <CheckIcon style={{color: '#39ca39', marginRight: 30}} />
+          </Grid>
+          <Grid item xs={8} sm={8} md={8}>
+            <Typography
+              gutterBottom
+              className={classes.subtitleCloud}
+              variant="subtitle2"
+            >
+            {cloudSubItem.subItem} <br/>
+            </Typography>
+          </Grid>
         </Grid>
       );
     });
@@ -157,29 +181,7 @@ const DataStorage = () => {
             >
               Disruptive hot cloud storage
             </Typography>
-            {
-              cloudSubItems.map((cloudSubItem, key)=> {
-                return(
-                  
-                  <Grid container spacing={1} key={key}>
-                    <Grid item xs={2} sm={2} md={2}>
-                    </Grid>
-                    <Grid item xs={2} sm={2} md={2}>
-                      <CheckIcon style={{color: '#39ca39', marginRight: 30}} />
-                    </Grid>
-                    <Grid item xs={8} sm={8} md={8}>
-                      <Typography
-                        gutterBottom
-                        className={classes.subtitleCloud}
-                        variant="subtitle2"
-                      >
-                      {cloudSubItem.subItem} <br/>
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                )
-              })
-            }
+            {renderSubItems(cloudSubItems)}
           </Grid>
           {renderCardItems(cardItems)}
         </Grid>

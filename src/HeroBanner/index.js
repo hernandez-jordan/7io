@@ -10,7 +10,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontWeight: "bold",
-    color: "white"
+    color: "white",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "calc(0.5em + 10vw)"
+    }
   },
   subTitle: {
     color: "white"
