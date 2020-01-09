@@ -10,10 +10,11 @@ import {
   Grid
 } from "@material-ui/core";
 import { HashLink as Link } from "react-router-hash-link";
+import Skeleton from '@material-ui/lab/Skeleton';
 
-const useStyles = makeStyles(theme =>({
+const useStyles = makeStyles(theme => ({
   outer: {
-    backgroundColor: "#F5F5F9",
+    backgroundColor: "#331D48",
     paddingTop: 50,
     paddingBottom: 50,
     height: "auto",
@@ -27,17 +28,17 @@ const useStyles = makeStyles(theme =>({
     height: "100%",
     borderRadius: 10,
     textAlign: "center",
-    backgroundColor: "#F5F5F9",
+    backgroundColor: "#331D48"
   },
   cardImage: {
     boxShadow: "none",
     height: "100%",
     borderRadius: 10,
     textAlign: "center",
-    backgroundColor: "#F5F5F9",
+    //backgroundColor: "#F5F5F9",
     [theme.breakpoints.down("sm")]: {
-      display: 'none',
-    },
+      display: "none"
+    }
   },
   media: {
     height: 140
@@ -49,13 +50,13 @@ const useStyles = makeStyles(theme =>({
     margin: "50px auto",
     textAlign: "center",
     fontWeight: "bold",
-    color: "#331D48"
+    color: "white"
   },
   subtitle: {
     marginTop: 0,
     margin: "50px auto",
     textAlign: "center",
-    color: "#9C9C9C"
+    color: "white"
   },
   button: {
     color: "white",
@@ -77,12 +78,15 @@ const useStyles = makeStyles(theme =>({
       textDecoration: "none"
     }
   },
+  text: {
+    color: "white",
+  }
 }));
 
 const items = [
   {
     icon: require("../../img/mainFOE1.svg"),
-    title: "Web Security Map",
+    title: "A KYC Solution that is made to last",
     content: "",
     img: require("../../img/dataStorage.svg")
   }
@@ -91,13 +95,13 @@ const items = [
 const itemsTwo = [
   {
     icon: require("../../img/mainFOE1.svg"),
-    title: "Security audits",
+    title: "The new framework for Cryptocurrency companies",
     content: "",
     img: require("../../img/dataStorage.svg")
   }
 ];
 
-const CyberSecurity = () => {
+const Compliance = () => {
   const classes = useStyles();
 
   const renderItems = items => {
@@ -106,7 +110,7 @@ const CyberSecurity = () => {
         <Fragment key={key}>
           <Grid item xs={12} sm={12} md={6}>
             <Card className={classes.card}>
-              <CardMedia
+                <CardMedia
                 className={classes.cardMedia}
                 component="img"
                 height="140"
@@ -115,27 +119,26 @@ const CyberSecurity = () => {
                 title={item.title}
               />
               <CardContent>
-                <Typography gutterBottom variant="h5">
+                <Typography gutterBottom variant="h5" className={classes.text}>
                   {item.title}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Our team has participated in making the internet a cleaner and
-                  safer place. The open sourced non-profit project of the
-                  internet cleanup foundation has shown governmental
-                  institutions that their websites aren’t secure. <br /> <br />
-                  After three years of development, and seeing the government
-                  actively use the product, we noticed that there is great value
-                  for the private sector as well. Multinationals and businesses
-                  with a large collection of domains and subdomains should check
-                  if their data and the data of their clients is managed
-                  properly.
-                  <br /> <br />
-                  To show the rest of the company how your websites perform, we
-                  have plotted the risk of your websites on a map that is
-                  visible and understandable by all departments. This way your
-                  complete company will sense the urge of improving your
-                  security.
-                  <br /> <br />
+                <Typography variant="body2" className={classes.text} component="p">
+                  Nowadays client onboarding can be done quickly, but has it
+                  been done properly? Blanco’s new KYC platform enables
+                  financial institutions to onboard clients beyond the level of
+                  expertise that the regulator requires.<br/><br/>
+                  Banks, Asset managers,Cryptocurrency brokers, Custodians and
+                  other financial institutions each have their own requirements
+                  when it comes to their KYC and AML procedures. Blanco’s
+                  platform enables each type of financial institution to
+                  customize their client intake, client file and monitoring
+                  frequency exactly as they require. This saves costs for the
+                  business and time for the clients.<br/><br/>
+                  Combined with our expertise of structuring internal procedures
+                  that have proven to be sufficient by the Regulator in several
+                  European countries, we can assure that any business’s
+                  compliance department will be ready for what comes next.
+                  <br/>
                 </Typography>
               </CardContent>
             </Card>
@@ -179,16 +182,18 @@ const CyberSecurity = () => {
                 title={item.title}
               />
               <CardContent>
-                <Typography gutterBottom variant="h5">
+                <Typography gutterBottom variant="h5" className={classes.text}>
                   {item.title}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Our extensive experience in the field of cybersecurity enables
-                  us to analyze, break, fix and improve your company’s security.
-                  We are able to pen test your code to prevent attacks or if
-                  it’s too late, we can show you what went wrong and make it
-                  better. <br /> <br />
-                  Interested in making your company safe?
+                <Typography variant="body2" className={classes.text} component="p">
+                  AMLD5 will have a serious impact on crypto brokers, custodians
+                  and other financial institutions in Europe. By structuring
+                  internal procedures combined with Blanco’s KYC platform and
+                  blockchain forensic software, cryptocurrency companies will be
+                  future proof and covered for anything their banks or
+                  regulators require.
+                  <br/><br/>
+                  Contact us for more information or to schedule a demo.
                 </Typography>
                 <Link
                   to="contact#contactBanner"
@@ -211,26 +216,26 @@ const CyberSecurity = () => {
 
   return (
     <div className={classes.outer}>
-      <Container className={classes.container} id="cyberSecurity">
+      <Container className={classes.container} id="compliances">
         <Typography gutterBottom className={classes.title} variant="h2">
-          CYBER SECURITY
+          COMPLIANCE
         </Typography>
         <Typography
           gutterBottom
           className={classes.subtitle}
           variant="subtitle2"
         >
-          In this rapidly digitizing world, protection of personal and company
-          data is becoming more urgent than ever before. We can help prevent
-          hacks or if it’s too late, help determine what went wrong and fix it.
+          Before the birth of 7io, compliance made several of our activities
+          more complex. But with the knowledge and products we have today, we
+          see compliance as an opportunity instead of a blockade.
         </Typography>
         <Grid container spacing={2}>
-          {renderItems(items)}
-          {renderItemsTwo(itemsTwo)}
+          {renderItems(items)? renderItems(items) : <Skeleton variant="rect" width={210} height={118}/> }
+          {renderItemsTwo(itemsTwo)? renderItemsTwo(itemsTwo) : <Skeleton variant="rect" width={210} height={118}/> }
         </Grid>
       </Container>
     </div>
   );
 };
 
-export default CyberSecurity;
+export default Compliance;

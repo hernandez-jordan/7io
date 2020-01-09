@@ -1,14 +1,20 @@
 import React from "react";
-import DataStorage from './DataStorage';
-import ContactForm from '../../ContactForm';
 import ProductBanner from '../../HeroBanner/ProductBanner';
+import DataStorage from './DataStorage';
+import CyberSecurity from './CyberSecurity';
+import Compliance from './Compliance';
+import FooterBanner from './FooterBanner';
+
+
 
 const ProductSections = () => {
   return (
     <>
       <ProductBanner />
       <DataStorage />
-      <ContactForm />
+      <CyberSecurity />
+      <Compliance />
+      <FooterBanner />
     </>
   );
 }

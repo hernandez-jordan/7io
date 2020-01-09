@@ -209,7 +209,7 @@ const TriggerMenu = props => {
     }
   ];
 
-  const renderDesktopMenu = () =>
+  const renderDesktopMenu = () => 
     menuItems.map((menuItem, key) => {
       return (
         <Menu
