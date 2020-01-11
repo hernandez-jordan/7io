@@ -6,11 +6,17 @@ import Services from "./Pages/Services";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
     <Router>
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>7io</title>
+          <link rel="canonical" href="https://7io.wevisualizeit.now.sh" />
+        </Helmet>
         <Switch>
           <Route exact path="/">
             <Home />
