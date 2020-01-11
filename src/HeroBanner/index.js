@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
-import BannerBackground3 from "../img/bannerBackground3.png";
+import BannerBackground from "../img/bannerBackground1.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { Link } from "react-router-dom";
 
@@ -85,7 +85,7 @@ const HeroBanner = () => {
       <div id="heroBanner">
         <div
           className={classes.heroImage}
-          style={{ backgroundImage: `url(${BannerBackground3})` }}
+          style={{ backgroundImage: `url(${BannerBackground})` }}
         >
           <Container className={classes.container}>
             <div className={classes.slogan}>

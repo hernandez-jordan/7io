@@ -93,7 +93,7 @@ const items = [
   },
   {
     icon: require("../../img/mainFOE1.svg"),
-    title: "IT",
+    title: "IT Services",
     content:
       "Our team has been around the IT industry for over 20 years focusing on any piece of code that needed to be battle tested or fixed. We have the knowledge to roll out proof of concepts effortlessly and have the network to put a team of experienced developers, hackers or system integrators on the job. Specializing in cyber security, PoC architectures, data storage, DLT and complex problem solving.",
     img: require("../../img/dataStorage.svg")

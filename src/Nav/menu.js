@@ -113,7 +113,7 @@ const TriggerMenu = props => {
         },
         {
           id: "services",
-          label: "IT",
+          label: "IT Services",
           menuProps: {
             onClickFunction: e => popupServices.close
           }
@@ -209,7 +209,7 @@ const TriggerMenu = props => {
     }
   ];
 
-  const renderDesktopMenu = () => 
+  const renderDesktopMenu = () =>
     menuItems.map((menuItem, key) => {
       return (
         <Menu
@@ -255,23 +255,34 @@ const TriggerMenu = props => {
   // };
   // countdown(10);
 
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <>
       <div>
         {isDesktop && (
           <>
             <Link
-              to="/#heroContainer"
+              to="/#heroBanner"
               className={classes.link}
-              scroll={el =>
-                el.scrollIntoView({ behavior: "instant", block: "end" })
-              }
+              scroll={el => scrollWithOffset(el, 150)}
             >
               <Button className={classes.button} variant="contained">
                 Home
               </Button>
             </Link>
-            <Link to="/products" className={classes.link}>
+            <Link
+              to="/products#productBanner"
+              className={classes.link}
+              scroll={el => scrollWithOffset(el, 150)}
+            >
               <Button
                 className={classes.button}
                 variant="contained"
@@ -281,7 +292,11 @@ const TriggerMenu = props => {
                 Products
               </Button>
             </Link>
-            <Link to="/services" className={classes.link}>
+            <Link
+              to="/services#servicesBanner"
+              className={classes.link}
+              scroll={el => scrollWithOffset(el, 150)}
+            >
               <Button
                 className={classes.button}
                 variant="contained"
@@ -291,17 +306,21 @@ const TriggerMenu = props => {
                 Services
               </Button>
             </Link>
-            <Link to="/about" className={classes.link}>
+            <Link
+              to="/about#aboutBanner"
+              className={classes.link}
+              scroll={el => scrollWithOffset(el, 150)}
+            >
               <Button className={classes.button} variant="contained">
                 About
               </Button>
             </Link>
             <Link
+              smooth
               to="/contact#contactBanner"
               className={classes.link}
-              scroll={el =>
-                el.scrollIntoView({ behavior: "instant", block: "end" })
-              }
+              //scroll={el => {el.scrollIntoView(true, {behaviour:'smooth'}); window.scrollBy(0, -64)}}
+              scroll={el => scrollWithOffset(el, 150)}
             >
               <Button className={classes.buttonContact} variant="contained">
                 Contact Us

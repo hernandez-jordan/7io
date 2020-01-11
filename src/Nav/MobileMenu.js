@@ -1,45 +1,46 @@
-import React, { useState } from 'react';
-import { 
-  makeStyles, 
-  IconButton, 
+import React, { useState } from "react";
+import {
+  makeStyles,
+  IconButton,
   Drawer,
   List,
   ListItem,
   ListItemIcon,
-  ListItemText } from '@material-ui/core';
-import MailIcon from '@material-ui/icons/Mail';
+  ListItemText
+} from "@material-ui/core";
+import MailIcon from "@material-ui/icons/Mail";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { HashLink as Link } from "react-router-hash-link";
-import HomeIcon from '@material-ui/icons/Home';
-import GroupIcon from '@material-ui/icons/Group';
-import WorkIcon from '@material-ui/icons/Work';
-import CloudCircleIcon from '@material-ui/icons/CloudCircle';
+import HomeIcon from "@material-ui/icons/Home";
+import GroupIcon from "@material-ui/icons/Group";
+import WorkIcon from "@material-ui/icons/Work";
+import CloudCircleIcon from "@material-ui/icons/CloudCircle";
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
+    width: 250
   },
   fullList: {
-    width: 'auto',
+    width: "auto"
   },
-  link:{
+  link: {
     color: "black",
     textDecoration: "none",
     "&:hover": {
       textDecoration: "none"
-    },
+    }
   }
 });
 
 const menuItems = [
   {
-    pathSuffix: '/',
-    menu: 'Home',
-    icon: <HomeIcon />,
+    pathSuffix: "/#heroBanner",
+    menu: "Home",
+    icon: <HomeIcon />
   },
   {
-    pathSuffix: '/products',
-    menu: 'Products',
+    pathSuffix: "/products#productBanner",
+    menu: "Products",
     icon: <CloudCircleIcon />,
     subMenu: [
       {
@@ -59,34 +60,46 @@ const menuItems = [
         menuProps: {
           //onClickFunction: e => handleClick
         }
-      },
+      }
     ]
   },
   {
-    pathSuffix: '/services',
-    menu: 'Services',
-    icon: <WorkIcon />,
+    pathSuffix: "/services#servicesBanner",
+    menu: "Services",
+    icon: <WorkIcon />
   },
   {
-    pathSuffix: '/about',
-    menu: 'About',
-    icon: <GroupIcon />,
+    pathSuffix: "/about#aboutBanner",
+    menu: "About",
+    icon: <GroupIcon />
   },
   {
-    pathSuffix: '/contact',
-    menu: 'Contact',
-    icon: <MailIcon />,
+    pathSuffix: "/contact#contactBanner",
+    menu: "Contact",
+    icon: <MailIcon />
   }
-]
+];
 
-const MobileMenu = () =>  {
-const classes = useStyles();
-const [state, setState] = useState({
-  right: false,
-});
+const MobileMenu = () => {
+  const classes = useStyles();
+  const [state, setState] = useState({
+    right: false
+  });
+
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
 
   const toggleDrawer = (side, open) => event => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
     setState({ ...state, [side]: open });
@@ -100,12 +113,15 @@ const [state, setState] = useState({
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        { menuItems.map((menuItem, key) => (
-          <Link to={menuItem.pathSuffix} key={key} className={classes.link}>
+        {menuItems.map((menuItem, key) => (
+          <Link
+            to={menuItem.pathSuffix}
+            key={key}
+            className={classes.link}
+            scroll={el => scrollWithOffset(el, 150)}
+          >
             <ListItem button key={menuItem.menu}>
-              <ListItemIcon > 
-                {menuItem.icon} 
-              </ListItemIcon>
+              <ListItemIcon>{menuItem.icon}</ListItemIcon>
               <ListItemText primary={menuItem.menu} />
             </ListItem>
           </Link>
@@ -116,20 +132,24 @@ const [state, setState] = useState({
 
   return (
     <div>
-     <IconButton
+      <IconButton
         aria-label="show more"
         aria-haspopup="true"
         color="inherit"
         variant="contained"
-        onClick={toggleDrawer('right', true)}
+        onClick={toggleDrawer("right", true)}
       >
         <MoreIcon />
       </IconButton>
-      <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        {sideList('right')}
+      <Drawer
+        anchor="right"
+        open={state.right}
+        onClose={toggleDrawer("right", false)}
+      >
+        {sideList("right")}
       </Drawer>
     </div>
   );
-}
+};
 
 export default MobileMenu;

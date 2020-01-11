@@ -89,6 +89,7 @@ const ProductBanner = () => {
 
   return (
     <div
+      id="productBanner"
       className={classes.heroImage}
       style={{ backgroundImage: `url(${BannerBackground})` }}
     >

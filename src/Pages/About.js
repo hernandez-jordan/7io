@@ -1,11 +1,11 @@
 import React from 'react';
 import GenericPage from "../Pages/common/GenericPage";
-import HomeSections from '../Components/Home';
+import AboutSections from '../Components/About';
 
 const About = () => {
   return (
       <GenericPage>
-        <HomeSections />
+        <AboutSections />
       </GenericPage>
   );
 }

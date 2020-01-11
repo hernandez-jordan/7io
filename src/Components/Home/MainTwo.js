@@ -5,7 +5,6 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Button,
   Typography,
   Container,
   Grid
@@ -128,9 +127,6 @@ const MainTwo = () => {
         <Grid container spacing={1}>
           {renderCardItems(cardItems)}
         </Grid>
-        <Button size="medium" className={classes.button}>
-          Read More
-        </Button>
       </Container>
     </div>
   );

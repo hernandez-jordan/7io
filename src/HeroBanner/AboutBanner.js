@@ -68,7 +68,7 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundColor: "#F5F5F9",
+    backgroundColor: "fafafa",
     [theme.breakpoints.down("xs")]: {
       //height: 550
     }
@@ -100,13 +100,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ServicesBanner = () => {
+const AboutBanner = () => {
   const classes = useStyles();
   //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
 
   return (
     <div
-      id="servicesBanner"
+      id="aboutBanner"
       className={classes.heroImage}
       style={{ backgroundImage: `url(${BannerBackgroundImage})` }}
     >
@@ -116,15 +116,16 @@ const ServicesBanner = () => {
             7io
           </Typography>
           <Typography gutterBottom className={classes.title} variant="h2">
-            SERVICES
+            ABOUT US
           </Typography>
           <Typography
             gutterBottom
             className={classes.subTitle}
             variant="subtitle1"
           >
-            Besides our solutions, we offer our services separately in which we <br/>
-            consult and help clients achieve what they desire.
+            Together with our partners we are able to solve a wide range of <br/>
+            problems and offer alternative solutions that have a noticeable <br/>
+            impact on business operations.
           </Typography>
           <Link smooth to="#contactContainer" className={classes.link}>
             <Button
@@ -147,4 +148,4 @@ const ServicesBanner = () => {
   );
 };
 
-export default ServicesBanner;
+export default AboutBanner;
