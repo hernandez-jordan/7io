@@ -13,9 +13,9 @@ module.exports = async (req, res) => {
       }
     }
     
-    var transporter = nodemailer.createTransport(transport)
+    var transporter =  nodemailer.createTransport(transport)
     
-    transporter.verify((error, success) => {
+    await transporter.verify((error, success) => {
       if (error) {
         res.end(error);
       } else {
