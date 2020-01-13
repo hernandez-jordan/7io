@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   heroImage: {
-    height: 800,
+    height: 900,
     width: "100%",
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",

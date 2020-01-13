@@ -8,7 +8,7 @@ import {
 const useStyles = makeStyles(theme => ({
   outer: {
     backgroundColor: "fafafa",
-    paddingTop: 50,
+    //paddingTop: 50,
     paddingBottom: 50,
     height: "auto",
     width: "100%"
