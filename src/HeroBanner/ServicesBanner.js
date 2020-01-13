@@ -68,7 +68,7 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundColor: "#F5F5F9",
+    backgroundColor: "#fafafa",
     [theme.breakpoints.down("xs")]: {
       //height: 550
     }

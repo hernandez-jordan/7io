@@ -13,7 +13,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 const useStyles = makeStyles(theme => ({
   outer: {
-    backgroundColor: "#F5F5F9",
+    backgroundColor: "#fafafa",
     //paddingTop: 50,
     paddingBottom: 50,
     height: "auto",
