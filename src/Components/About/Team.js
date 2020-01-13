@@ -97,14 +97,14 @@ const items = [
   {
     icon: require("../../img/Baby-Yoda-2.jpg"),
     title: "Peter Engelberg",
-    content: `Peter Engelberg has strong managerial expertise as CEO of aLuxembourg Bank 
-      and from running International AssetManagement & Private Equity firms. 
+    content: `Peter Engelberg has strong managerial expertise as CEO of a Luxembourg Bank 
+      and from running International Asset Management & Private Equity firms. 
       The solid experience of Peter builds on knowledge of the international 
-      FinancialMarkets, strategic acumen and experience of Corporate Financedeals. 
-      He has an extensive work experience as a business andlegal advisor through Board 
+      Financial Markets, strategic acumen and experience of Corporate Finance deals. 
+      He has an extensive work experience as a business and legal advisor through Board 
       memberships as well as general counsel positions to both major corporations and startups.
-      Peter holds a Master’s degree in Law from Lund University,Sweden, and a diploma of studies 
-      in International Managementfrom IMD in Lausanne, Switzerland.`,
+      Peter holds a Master’s degree in Law from Lund University, Sweden, and a diploma of studies 
+      in International Management from IMD in Lausanne, Switzerland.`,
     img: require("../../img/dataStorage.svg"),
     link: "www.linkedin.com/in/peter-engelberg-2978105/"
   },
