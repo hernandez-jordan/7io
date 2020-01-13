@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 module.exports = (req, res) => {
   const { body } = req
   const transport = {
-    host: 'nlss9.a2hosting.com', 
+    host: 'mail.7io.net', 
     port: 465,
     auth: {
       user: 'hello@7io.net',
@@ -38,7 +38,7 @@ module.exports = (req, res) => {
             res.end({type: 'success', message: 'Email not sent.'});
           }
           else {
-            res.end({type: 'error', message: 'Email succesfully sent!'});
+            res.end({type: 'error',message: 'Email succesfully sent!'});
           }
       });
   }
