@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import {
-  makeStyles,
   TextField,
   MenuItem,
   Container,
   Typography,
-  Button
+  Button,
+  Snackbar, 
+  IconButton,
+  Icon
 } from "@material-ui/core";
+import {
+  makeStyles, useTheme
+ } from '@material-ui/core/styles';
+import { axios } from 'axios';
+import { green } from '@material-ui/core/colors';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,7 +63,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 const fieldOfInterest = [
   {
     value: "USD",
@@ -75,13 +82,95 @@ const fieldOfInterest = [
   }
 ];
 
-const ContactForm = () => {
+const ContactForm = props => {
   const classes = useStyles();
-  const [fieldOfInterestItem, setFieldOfInterestItem] = useState("EUR");
+  const [fieldOfInterestItem, setFieldOfInterestItem] = useState('EUR');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [message, setMessage] = useState('');
+  const [responseMessageType, setResponseMessageType] = useState('');
+  const [responseMessage, setResponseMessage] = useState('');
+  const [open, setOpen] = useState('test');
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleChange = event => {
     setFieldOfInterestItem(event.target.value);
   };
+
+  const setSnackBar = (messageParam, typeParam) => {
+    setResponseMessage(messageParam);
+    setResponseMessageType(typeParam);
+  };
+
+  const useSnackbarStatusStyles = makeStyles(theme => ({
+    success: {
+      ' &>div': {
+        backgroundColor: green[600],
+      },
+    },
+    error: {
+      ' &>div': {
+        backgroundColor: theme.palette.error.main,
+      },
+    },
+  }));
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setResponseMessage('');
+
+    // only accept strings that include numbers & optionally starting '+'
+    const phoneNumberRegex = /^\+?[0-9]*$/;
+
+    // only accept strings with text characters & numbers within email format
+    // see11@see2.com
+    const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
+
+    if (!firstName || !lastName || !email || !message || !phoneNumber || !companyName || !message) {
+      setSnackBar('Please enter all required field! (*)', 'error');
+      return;
+    }
+
+    if (message.length < 6) {
+      setSnackBar('Please enter a message with some substance...', 'error');
+      return;
+    }
+
+    if ((phoneNumber && phoneNumber.length < 8)
+      || (phoneNumber && !phoneNumberRegex.test(phoneNumber))) {
+      setSnackBar('Please enter a valid phone number...', 'error');
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setSnackBar('Please enter a valid email...', 'error');
+      return;
+    }
+    
+    // // eslint-disable-next-line
+    await axios.post('/api/sendMail', {
+      firstName, lastName, email, phoneNumber, companyName, message,
+    }).then((response) => {
+      console.log('response:', response);
+      if (response.data.status === 'success') {
+        setSnackBar('Mail succesfuly sent!', 'success');
+      } else if (response.data.status === 'fail') {
+        setSnackBar(`error: ${response.data}`, 'error');
+      }
+    });
+  };
+  const theme = useTheme();
+  const snackbarStatusClasses = useSnackbarStatusStyles(theme);
 
   return (
     <div id="contactContainer" className={classes.outer}>
@@ -100,11 +189,41 @@ const ContactForm = () => {
           noValidate
           autoComplete="off"
         >
-          <TextField label="First Name" variant="outlined" />
-          <TextField label="Last Name" variant="outlined" />
-          <TextField label="Email" variant="outlined" />
-          <TextField label="Phone Number" variant="outlined" />
-          <TextField label="Company Name" variant="outlined" />
+          <TextField 
+            label="First Name" 
+            variant="outlined"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)} 
+          />
+
+          <TextField 
+            label="Last Name" 
+            variant="outlined"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)} 
+          />
+
+          <TextField 
+            label="Email" 
+            variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+
+          <TextField 
+            label="Phone Number" 
+            variant="outlined"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)} 
+          />
+
+          <TextField 
+            label="Company Name" 
+            variant="outlined"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)} 
+          />
+
           <TextField
             select
             label="Field of Interest"
@@ -119,6 +238,7 @@ const ContactForm = () => {
               </MenuItem>
             ))}
           </TextField>
+
             <TextField
                 id="outlined-multiline-static"
                 label="Your Message"
@@ -126,12 +246,42 @@ const ContactForm = () => {
                 rows="4"
                 placeholder="Your message here.."
                 variant="outlined"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className={classes.textFieldMessage}
             />
-          <Button size="medium" className={classes.button}>
+          <Button size="medium" className={classes.button} onClick={(e) => sendEmail(e)}>
             Send
           </Button>
         </form>
+        {responseMessage && (
+          <Snackbar
+            className={snackbarStatusClasses[responseMessageType]}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            open={Boolean(open)}
+            autoHideDuration={6000}
+            onClose={handleClose}
+            ContentProps={{
+              'aria-describedby': 'message-id',
+            }}
+            message={<span id="message-id">{responseMessage}</span>}
+            action={[
+              <IconButton
+                key="close"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+              >
+                <Icon
+                  light={'true'}
+                />
+              </IconButton>,
+            ]}
+          />
+        )}
       </Container>
     </div>
   );

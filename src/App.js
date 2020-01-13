@@ -19,19 +19,24 @@ function App() {
         </Helmet>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home
+            />
           </Route>
           <Route path="/products">
-            <Products />
+            <Products
+            />
           </Route>
           <Route path="/services">
-            <Services />
+            <Services
+            />
           </Route>
           <Route path="/about">
-            <About />
+            <About
+            />
           </Route>
           <Route path="/contact">
-            <Contact />
+            <Contact
+            />
           </Route>
         </Switch>
       </div>
