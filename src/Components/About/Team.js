@@ -88,8 +88,8 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     marginTop: 20
   },
-  grid:{
-    margin: "auto",
+  grid: {
+    margin: "auto"
   }
 }));
 
@@ -97,24 +97,46 @@ const items = [
   {
     icon: require("../../img/Baby-Yoda-2.jpg"),
     title: "Peter Engelberg",
-    content:
-      "Peter Engelberg has strong managerial expertise as CEO of aLuxembourg Bank and from running International AssetManagement & Private Equity firms. The solid experience ofPeter builds on knowledge of the international FinancialMarkets, strategic acumen and experience of Corporate Financedeals. He has an extensive work experience as a business andlegal advisor through Board memberships as well as generalcounsel positions to both major corporations and startups.Peter holds a Master’s degree in Law from Lund University,Sweden, and a diploma of studies in International Managementfrom IMD in Lausanne, Switzerland.",
+    content: `Peter Engelberg has strong managerial expertise as CEO of aLuxembourg Bank 
+      and from running International AssetManagement & Private Equity firms. 
+      The solid experience of Peter builds on knowledge of the international 
+      FinancialMarkets, strategic acumen and experience of Corporate Financedeals. 
+      He has an extensive work experience as a business andlegal advisor through Board 
+      memberships as well as general counsel positions to both major corporations and startups.
+      Peter holds a Master’s degree in Law from Lund University,Sweden, and a diploma of studies 
+      in International Managementfrom IMD in Lausanne, Switzerland.`,
     img: require("../../img/dataStorage.svg"),
     link: "www.linkedin.com/in/peter-engelberg-2978105/"
   },
   {
     icon: require("../../img/Baby-Yoda-2.jpg"),
     title: "Eelko Neven",
-    content:
-      "In 2001 Eelko kickstarted his promising career as a SoftwareEngineer at Fintrans where he became an expert in digitizingthe insurance industry. When the company was bought by Centriche joined there Dataxchange department where he worked onseveral software projects like customs declarations software,subsidy software and telepresence solutions. Eelko’severlasting urge to increase his technological knowledge andskill enabled him to solve countless problems for a wide arrayof companies as a young entrepreneur. Becoming a Master ofDigital Security, Eelko discovered multiple leaks for big name enterprises like Google and Twitter. Nowadays Eelko focuses onproviding revolutionary solutions for businesses that seek to improve their IT department.",
+    content: `In 2001 Eelko kickstarted his promising career as a SoftwareEngineer
+      at Fintrans where he became an expert in digitizing the insurance industry. 
+      When the company was bought by Centriche joined there Dataxchange department 
+      where he worked on several software projects like customs declarations software,
+      subsidy software and telepresence solutions. Eelko’s everlasting urge to increase 
+      his technological knowledge and skill enabled him to solve countless problems for 
+      a wide array of companies as a young entrepreneur. Becoming a Master of Digital Security,
+      Eelko discovered multiple leaks for big name enterprises like Google and Twitter. 
+      Nowadays Eelko focuses on providing revolutionary solutions for businesses that 
+      seek to improve their IT department.`,
     img: require("../../img/dataStorage.svg"),
     link: "www.linkedin.com/in/suresync/"
   },
   {
     icon: require("../../img/Baby-Yoda-2.jpg"),
     title: "Alexander Metz",
-    content:
-      "Alexander has been doing sales in a diverse set of markets inthe US and The Netherlands since 2012. During college in 2016he became a successful trader and investor in thecryptocurrency market. In 2017 he decided to go full time andopened a company focused on blockchain and cryptocurrencies.Shortly after, he merged his company with a cryptocurrencybroker specializing in Token use cases, regulation and thebridge between the world of finance and cryptocurrencies.During his time in the Blockchain space, Alex joined severalfintech startups in which he did sales and operations. Today,Alex can be found in the field doing sales and consultancy inthe IT and Fintech sector.",
+    content: `Alexander has been doing sales in a diverse set of markets in the US
+      and The Netherlands since 2012. During college in 2016 he became a 
+      successful trader and investor in the cryptocurrency market. In 2017
+      he decided to go full time andopened a company focused on blockchain
+      and cryptocurrencies. Shortly after, he merged his company with 
+      a cryptocurrencybroker specializing in Token use cases, regulation
+      and the bridge between the world of finance and cryptocurrencies.
+      During his time in the Blockchain space, Alex joined several fintech
+      startups in which he did sales and operations. Today,Alex can be 
+      found in the field doing sales and consultancy in the IT and Fintech sector.`,
     img: require("../../img/dataStorage.svg"),
     link: "www.linkedin.com/in/alex-metz-a07582156/"
   }
@@ -157,7 +179,6 @@ const Team = () => {
   return (
     <div className={classes.outer} id="cyberSecurity">
       <Container className={classes.container}>
-        
         <Typography gutterBottom className={classes.title} variant="h2">
           OUR TEAM
         </Typography>
