@@ -12,7 +12,7 @@ import {
 import {
   makeStyles, useTheme
  } from '@material-ui/core/styles';
-import { axios } from 'axios';
+import  axios  from 'axios';
 import { green } from '@material-ui/core/colors';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -156,7 +156,6 @@ const ContactForm = props => {
       setSnackBar('Please enter a valid email...', 'error');
       return;
     }
-    
     // // eslint-disable-next-line
     await axios.post('/api/sendMail', {
       firstName, lastName, email, phoneNumber, companyName, message,
