@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 module.exports = (req, res) => {
   const { body } = req
   const transport = {
-    host: 'smtp.strato.com', 
+    host: 'mail.7io.net', 
     port: 465,
     auth: {
       user: 'hello@7io.net',
