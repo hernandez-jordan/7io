@@ -107,6 +107,15 @@ const itemsTwo = [
 const Compliance = () => {
   const classes = useStyles();
 
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
   const renderItems = items => {
     return items.map((item, key) => {
       return (
@@ -199,11 +208,9 @@ const Compliance = () => {
                   Contact us for more information or to schedule a demo.
                 </Typography>
                 <Link
-                  to="contact#contactBanner"
+                  to="contact#contactContainer"
                   className={classes.link}
-                  scroll={el =>
-                    el.scrollIntoView({ behavior: "instant", block: "end" })
-                  }
+                  scroll={el => scrollWithOffset(el, 0)}
                 >
                   <Button className={classes.button} variant="contained">
                     Contact Us

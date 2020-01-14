@@ -3,6 +3,7 @@ import { makeStyles, Container, Button, Typography } from "@material-ui/core";
 import BannerBackgroundImage from "../img/bannerBackground11.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { HashLink as Link } from "react-router-hash-link";
+import {Animated} from "react-animated-css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -102,6 +103,16 @@ const useStyles = makeStyles(theme => ({
 const ContactBanner = () => {
   const classes = useStyles();
 
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
+
   return (
     <div
       id="contactBanner"
@@ -110,29 +121,39 @@ const ContactBanner = () => {
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>
-          <Typography gutterBottom className={classes.title} variant="h1">
-            7io
-          </Typography>
-          <Typography gutterBottom className={classes.title} variant="h2">
-            CONTACT US
-          </Typography>
-          <Typography
-            gutterBottom
-            className={classes.subTitle}
-            variant="subtitle1"
+          <Animated
+            animationIn="fadeIn"
+            animationInDuration={2000}
+            isVisible={true}
           >
-            For questions, quotes or other inquiries
-          </Typography>
-
-          <Link smooth to="#contactContainer" className={classes.link}>
-            <Button
-              className={classes.button}
-              variant="contained"
-              startIcon={<PhoneIcon />}
+            <Typography gutterBottom className={classes.title} variant="h1">
+              7io
+            </Typography>
+            <Typography gutterBottom className={classes.title} variant="h2">
+              CONTACT US
+            </Typography>
+            <Typography
+              gutterBottom
+              className={classes.subTitle}
+              variant="subtitle1"
             >
-              Contact Us
-            </Button>
-          </Link>
+              For questions, quotes or other inquiries
+            </Typography>
+
+            <Link 
+            smooth to="#contactContainer" 
+            className={classes.link}
+            scroll={el => scrollWithOffset(el, 0)}
+            >
+              <Button
+                className={classes.button}
+                variant="contained"
+                startIcon={<PhoneIcon />}
+              >
+                Contact Us
+              </Button>
+            </Link>
+          </Animated>
         </div>
       </Container>
     </div>

@@ -116,6 +116,16 @@ const items = [
 
 const AllServices = () => {
   const classes = useStyles();
+  
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
 
   const renderItems = items => {
     return items.map((item, key) => {
@@ -168,11 +178,9 @@ const AllServices = () => {
           For any questions about our services please contact us.
         </Typography>
         <Link
-          to="contact#contactBanner"
+          to="contact#contactContainer"
           className={classes.link}
-          scroll={el =>
-            el.scrollIntoView({ behavior: "instant", block: "end" })
-          }
+          scroll={el => scrollWithOffset(el, 0)}
         >
           <Button className={classes.button} variant="contained">
             Contact Us

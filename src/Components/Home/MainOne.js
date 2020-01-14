@@ -93,6 +93,15 @@ const MainOne = () => {
     }
   ];
 
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
   const renderCardItems = cardItems => {
     return cardItems.map((cardItem, keyC) => {
       return (
@@ -139,9 +148,7 @@ const MainOne = () => {
         <Link
           to="services#servicesBanner"
           className={classes.link}
-          scroll={el =>
-            el.scrollIntoView({ behavior: "instant", block: "end" })
-          }
+          scroll={el => scrollWithOffset(el, 150)}
         >
           <Button size="medium" className={classes.button} variant="contained">
             Read More

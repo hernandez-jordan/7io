@@ -3,6 +3,7 @@ import { makeStyles, Container, Button, Typography } from "@material-ui/core";
 import BannerBackgroundImage from "../img/bannerBackground11.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { HashLink as Link } from "react-router-hash-link";
+import { Animated } from "react-animated-css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -102,7 +103,15 @@ const useStyles = makeStyles(theme => ({
 
 const ServicesBanner = () => {
   const classes = useStyles();
-  //const imageUrl = useWindowWidth() <= 300 ? BannerBackground1 : null;
+
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <div
@@ -112,29 +121,41 @@ const ServicesBanner = () => {
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>
-          <Typography gutterBottom className={classes.title} variant="h1">
-            7io
-          </Typography>
-          <Typography gutterBottom className={classes.title} variant="h2">
-            SERVICES
-          </Typography>
-          <Typography
-            gutterBottom
-            className={classes.subTitle}
-            variant="subtitle1"
+          <Animated
+            animationIn="fadeIn"
+            animationInDuration={2000}
+            isVisible={true}
           >
-            Besides our solutions, we offer our services separately in which we <br/>
-            consult and help clients achieve what they desire.
-          </Typography>
-          <Link smooth to="#contactContainer" className={classes.link}>
-            <Button
-              className={classes.button}
-              variant="contained"
-              startIcon={<PhoneIcon />}
+            <Typography gutterBottom className={classes.title} variant="h1">
+              7io
+            </Typography>
+            <Typography gutterBottom className={classes.title} variant="h2">
+              SERVICES
+            </Typography>
+            <Typography
+              gutterBottom
+              className={classes.subTitle}
+              variant="subtitle1"
             >
-              Contact Us
-            </Button>
-          </Link>
+              Besides our solutions, we offer our services separately in which
+              we <br />
+              consult and help clients achieve what they desire.
+            </Typography>
+            <Link
+              smooth
+              to="/contact#contactContainer"
+              className={classes.link}
+              scroll={el => scrollWithOffset(el, 0)}
+            >
+              <Button
+                className={classes.button}
+                variant="contained"
+                startIcon={<PhoneIcon />}
+              >
+                Contact Us
+              </Button>
+            </Link>
+          </Animated>
         </div>
         <div className={classes.imageContainer}>
           <div

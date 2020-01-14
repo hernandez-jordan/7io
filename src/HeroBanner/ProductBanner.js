@@ -2,7 +2,8 @@ import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
 import BannerBackground from "../img/bannerBackground11.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
+import {Animated} from "react-animated-css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   subTitle: {
-    color: "white",
+    color: "white"
   },
   button: {
     color: "white",
@@ -86,6 +87,15 @@ const useStyles = makeStyles(theme => ({
 
 const ProductBanner = () => {
   const classes = useStyles();
+  
+  const scrollWithOffset = (el, offset) => {
+    const elementPosition = el.offsetTop - offset;
+    window.scroll({
+      top: elementPosition,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <div
@@ -95,30 +105,40 @@ const ProductBanner = () => {
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>
-          <Typography gutterBottom className={classes.title} variant="h1">
-            7io
-          </Typography>
-          <Typography gutterBottom className={classes.title} variant="h2">
-            DATA STORAGE
-          </Typography>
-          <Typography
-            gutterBottom
-            className={classes.subTitle}
-            variant="subtitle1"
+          <Animated
+            animationIn="fadeIn"
+            animationInDuration={2000}
+            isVisible={true}
           >
-            By combining a new S3 compatible cloud storage solution <br />
-            with a local drive for windows, accessing and using your <br />
-            data becomes affordable and effortless <br />
-          </Typography>
-          <Link to="/contact" className={classes.link}>
-            <Button
-              className={classes.button}
-              variant="contained"
-              startIcon={<PhoneIcon />}
+            <Typography gutterBottom className={classes.title} variant="h1">
+              7io
+            </Typography>
+            <Typography gutterBottom className={classes.title} variant="h2">
+              DATA STORAGE
+            </Typography>
+            <Typography
+              gutterBottom
+              className={classes.subTitle}
+              variant="subtitle1"
             >
-              Contact Us
-            </Button>
-          </Link>
+              By combining a new S3 compatible cloud storage solution <br />
+              with a local drive for windows, accessing and using your <br />
+              data becomes affordable and effortless <br />
+            </Typography>
+            <Link 
+              smooth to="/contact#contactContainer" 
+              className={classes.link}
+              scroll={el => scrollWithOffset(el, 0)}
+              >
+              <Button
+                className={classes.button}
+                variant="contained"
+                startIcon={<PhoneIcon />}
+              >
+                Contact Us
+              </Button>
+            </Link>
+          </Animated>
         </div>
       </Container>
     </div>
