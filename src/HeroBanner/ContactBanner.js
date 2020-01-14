@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
-import BannerBackgroundImage from "../img/bannerBackground11.svg";
+import bannerContact from "../img/bannerContact.svg";
+import bannerContactMobile from "../img/bannerContactMobile.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { HashLink as Link } from "react-router-hash-link";
 import {Animated} from "react-animated-css";
@@ -69,19 +70,11 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundImage: `url(${bannerContact})`,
     [theme.breakpoints.down("xs")]: {
-      //height: 550
+      backgroundImage: `url(${bannerContactMobile})`,
+      height: 600,
     }
-  },
-  heroImage2: {
-    height: "100%",
-    width: "auto",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    },
-    [theme.breakpoints.up("md")]: {}
   },
   heroBackground: {
     width: "",
@@ -117,7 +110,6 @@ const ContactBanner = () => {
     <div
       id="contactBanner"
       className={classes.heroImage}
-      style={{ backgroundImage: `url(${BannerBackgroundImage})` }}
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>

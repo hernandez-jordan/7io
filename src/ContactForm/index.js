@@ -14,7 +14,8 @@ import {
  } from '@material-ui/core/styles';
 import  axios  from 'axios';
 import { green } from '@material-ui/core/colors';
-import CloseIcon from '@material-ui/icons/Close';
+import SendIcon from '@material-ui/icons/Send';
+//import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,7 +38,6 @@ const useStyles = makeStyles(theme => ({
   },    
   outer: {
     textAlign: "center",
-    paddingTop: 50,
     paddingBottom: 50,
     height: "auto",
     width: "100%"
@@ -50,7 +50,6 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     color: "white",
-    display: "inherit",
     borderRadius: "50px",
     backgroundColor: "#A765E6",
     width: "15em",
@@ -61,6 +60,7 @@ const useStyles = makeStyles(theme => ({
       border: "2px solid white"
     }
   },
+  
 }));
 
 const fieldOfInterest = [
@@ -136,8 +136,8 @@ const ContactForm = props => {
     // see11@see2.com
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
 
-    if (!firstName || !lastName || !email || !message || !phoneNumber || !companyName || !message) {
-      setSnackBar('Please enter all required field! (*)', 'error');
+    if (!firstName || !lastName || !email || !message || !message) {
+      setSnackBar('Please enter all required fields! (*)', 'error');
       return;
     }
 
@@ -193,6 +193,7 @@ const ContactForm = props => {
             variant="outlined"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)} 
+            required 
           />
 
           <TextField 
@@ -200,6 +201,7 @@ const ContactForm = props => {
             variant="outlined"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)} 
+            required
           />
 
           <TextField 
@@ -207,6 +209,7 @@ const ContactForm = props => {
             variant="outlined"
             value={email}
             onChange={(e) => setEmail(e.target.value)} 
+            required
           />
 
           <TextField 
@@ -230,6 +233,7 @@ const ContactForm = props => {
             onChange={handleChange}
             helperText="Please select your Field of Interest"
             variant="outlined"
+            required
           >
             {fieldOfInterest.map((option, key) => (
               <MenuItem key={key} value={option.value}>
@@ -248,9 +252,15 @@ const ContactForm = props => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className={classes.textFieldMessage}
+                required
             />
-          <Button size="medium" className={classes.button} onClick={(e) => sendEmail(e)}>
-            Send
+          <Button 
+            size="medium" 
+            className={classes.button} 
+            onClick={(e) => sendEmail(e)}
+            startIcon={<SendIcon />}
+            >
+              Send
           </Button>
         </form>
         {responseMessage && (

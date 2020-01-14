@@ -18,7 +18,10 @@ const useStyles = makeStyles(theme =>({
     width: "100%"
   },
   container: {
-    margin: "50px auto"
+    margin: "50px auto",
+    [theme.breakpoints.down("xs")]: {
+      //marginTop: 0,
+    }
   },
   card: {
     boxShadow: "none",
@@ -44,6 +47,7 @@ const useStyles = makeStyles(theme =>({
     color: "#331D48",
     [theme.breakpoints.down("xs")]: {
       fontSize: 'calc(0.5em + 10vw)',
+      marginTop: 0,
     },
   },
   titleCloud: {

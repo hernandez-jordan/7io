@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
-import BannerBackground from "../img/bannerBackground1.svg";
+import landingBanner from "../img/landingBanner.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { HashLink as Link } from "react-router-hash-link";
 import { Animated } from "react-animated-css";
@@ -66,15 +66,11 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "top",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundImage: `url(${landingBanner})`,
     [theme.breakpoints.down("xs")]: {
-      //height: 550
+      height: 750,
     }
   },
-  heroContainer: {
-    height: 700,
-    width: "100%",
-    overflow: "auto"
-  }
 }));
 
 const HeroBanner = () => {
@@ -95,7 +91,6 @@ const HeroBanner = () => {
       <div id="heroBanner">
         <div
           className={classes.heroImage}
-          style={{ backgroundImage: `url(${BannerBackground})` }}
         >
           <Container className={classes.container}>
             <div className={classes.slogan}>

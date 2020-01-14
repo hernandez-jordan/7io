@@ -15,7 +15,10 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     margin: "50px auto",
-    textAlign: "center"
+    textAlign: "center",
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 0,
+    },
   },
   title: {
     marginTop: 50,
@@ -23,7 +26,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold",
     color: "#331D48",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "calc(0.5em + 10vw)"
+      fontSize: "calc(0.5em + 10vw)",
+      marginTop: 0,
     }
   },
   subtitle: {

@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Container, Button, Typography } from "@material-ui/core";
-import BannerBackgroundImage from "../img/bannerBackground11.svg";
+import serviceBanner from "../img/serviceBanner.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { HashLink as Link } from "react-router-hash-link";
 import { Animated } from "react-animated-css";
@@ -70,35 +70,12 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundColor: "#fafafa",
+    backgroundImage: `url(${serviceBanner})`,
     [theme.breakpoints.down("xs")]: {
-      //height: 550
+      backgroundImage: `url(${serviceBanner})`,
+      height: 750,
     }
   },
-  heroImage2: {
-    height: "100%",
-    width: "auto",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    },
-    [theme.breakpoints.up("md")]: {}
-  },
-  heroBackground: {
-    width: "",
-    height: 600,
-    backgroundColor: "#331D48",
-    [theme.breakpoints.down("sm")]: {
-      height: 300
-    }
-  },
-  imageContainer: {
-    height: "100%",
-    width: "50%",
-    padding: 50,
-    paddingRight: 50,
-    [theme.breakpoints.up("me")]: {}
-  }
 }));
 
 const ServicesBanner = () => {
@@ -117,7 +94,6 @@ const ServicesBanner = () => {
     <div
       id="servicesBanner"
       className={classes.heroImage}
-      style={{ backgroundImage: `url(${BannerBackgroundImage})` }}
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>
@@ -156,12 +132,6 @@ const ServicesBanner = () => {
               </Button>
             </Link>
           </Animated>
-        </div>
-        <div className={classes.imageContainer}>
-          <div
-            className={classes.heroImage2}
-            style={{ backgroundImage: `url(${BannerBackgroundImage})` }}
-          ></div>
         </div>
       </Container>
     </div>
