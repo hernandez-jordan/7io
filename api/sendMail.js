@@ -4,7 +4,7 @@ module.exports = (req, res) => {
   const { body } = req
   const transport = {
     host: 'mail.7io.net', 
-    port: 465,
+    port: 2525,
     auth: {
       user: 'hello@7io.net',
       pass: 'nk066RF7@5a#',
