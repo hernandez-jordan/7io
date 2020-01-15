@@ -6,8 +6,8 @@ module.exports = (req, res) => {
     host: 'mail.7io.net', 
     port: 465,
     auth: {
-      user: 'hello@7io.net',
-      pass:  'nk066RF7@5a#',
+      user: process.env.APP_EMAIL,
+      pass: process.env.APP_EMAIL_PASSWORD,
     },
   };
   
@@ -35,10 +35,10 @@ module.exports = (req, res) => {
 
         transporter.sendMail(mail, (err, data) => {
           if (err) {
-            res.end({type: 'success', message: 'Email not sent.'});
+            res.end('fail');
           }
           else {
-            res.end({type: 'error',message: 'Email succesfully sent!'});
+            res.end('success');
           }
       });
   }
