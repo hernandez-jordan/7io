@@ -6,8 +6,10 @@ module.exports = (req, res) => {
     host: 'mail.7io.net', 
     port: 465,
     auth: {
-      user: process.env.APP_EMAIL,
-      pass: process.env.APP_EMAIL_PASSWORD,
+      user: 'hello@7io.net',
+      pass: 'nk066RF7@5a#',
+      // user: process.env.APP_EMAIL,
+      // pass: process.env.APP_EMAIL_PASSWORD,
     },
   };
   
