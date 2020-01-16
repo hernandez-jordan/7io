@@ -157,7 +157,7 @@ const ContactForm = props => {
       return;
     }
     // // eslint-disable-next-line
-    await axios.post('https://7io-mail0.wevisualizeit.now.sh/api/sendMail', {
+    await axios.post('https://7io-mail.wevisualizeit.now.sh/api/sendMail', {
       firstName, lastName, email, phoneNumber, companyName, message,
     }).then((response) => {
       console.log('response:', response);
