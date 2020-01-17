@@ -42,11 +42,16 @@ const useStyles = makeStyles(theme => ({
     height: "auto",
     width: "100%"
   },
-  componentTitle: {
+  title: {
     margin: "50px auto",
     textAlign: "center",
     fontWeight: "bold",
-    color: "#331D48"
+    color: "#331D48",
+    paddingTop: 50,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "calc(0.5em + 10vw)",
+      paddingTop: 20,
+    },
   },
   button: {
     color: "white",
@@ -176,7 +181,7 @@ const ContactForm = props => {
       <Container>
         <Typography
           gutterBottom
-          className={classes.componentTitle}
+          className={classes.title}
           variant="h2"
           component="h1"
         >

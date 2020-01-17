@@ -11,14 +11,10 @@ const useStyles = makeStyles(theme => ({
         paddingBottom: '10px',
     },
     root: {
-        //display: "flex",
-        //flexWrap: "wrap",
-        //justifyContent: "space-around",
         overflow: "hidden",
     },
     gridList: {
         flexWrap: "nowrap",
-        // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
         transform: "translateZ(0)",
         [theme.breakpoints.up("md")]: {
             paddingRight: 50,

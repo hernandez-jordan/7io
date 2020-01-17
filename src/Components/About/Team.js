@@ -198,6 +198,10 @@ const Team = () => {
           renderCenterLeftControls={null}
           renderCenterRightControls={null}
           enableKeyboardControls={true}
+          wrapAround = {true}
+          autoplay={true}
+          pauseOnHover={true}
+          autoplayInterval={10000}
         >
           {renderItems(items)}
         </Carousel>

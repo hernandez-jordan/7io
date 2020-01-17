@@ -245,16 +245,6 @@ const TriggerMenu = props => {
   const isDesktop = windowWidth >= 960;
   const renderMobileMenu = () => <MobileMenu />;
 
-  // const countdown = (value) => {
-  //   if (value > 0) {
-  //       console.log(value);
-  //       return countdown(value - 1);
-  //   } else {
-  //       return value;
-  //   }
-  // };
-  // countdown(10);
-
   const scrollWithOffset = (el, offset) => {
     const elementPosition = el.offsetTop - offset;
     window.scroll({
@@ -319,7 +309,6 @@ const TriggerMenu = props => {
               smooth
               to="/contact#contactBanner"
               className={classes.link}
-              //scroll={el => {el.scrollIntoView(true, {behaviour:'smooth'}); window.scrollBy(0, -64)}}
               scroll={el => scrollWithOffset(el, 150)}
             >
               <Button className={classes.buttonContact} variant="contained">

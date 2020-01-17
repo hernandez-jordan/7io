@@ -16,10 +16,14 @@ const useStyles = makeStyles(theme=>({
     paddingTop: 50,
     paddingBottom: 50,
     height: "auto",
-    width: "100%"
+    width: "100%",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 20,
+      paddingBottom: 20,
+    }
   },
   container: {
-    margin: "100px auto"
+    //margin: "100px auto"
   },
   card: {
     boxShadow: "none",

@@ -3,7 +3,6 @@ import { makeStyles, Container, Button, Typography } from "@material-ui/core";
 import aboutBanner from "../img/aboutBanner.svg";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { HashLink as Link } from "react-router-hash-link";
-import { Animated } from "react-animated-css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -98,11 +97,6 @@ const AboutBanner = () => {
     >
       <Container className={classes.container}>
         <div className={classes.slogan}>
-          <Animated
-            animationIn="fadeIn"
-            animationInDuration={2000}
-            isVisible={true}
-          >
             <Typography gutterBottom className={classes.title} variant="h1">
               7io
             </Typography>
@@ -134,7 +128,6 @@ const AboutBanner = () => {
                 Contact Us
               </Button>
             </Link>
-          </Animated>
         </div>
       </Container>
     </div>
