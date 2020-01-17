@@ -162,10 +162,9 @@ const ContactForm = props => {
       return;
     }
     // // eslint-disable-next-line
-    await axios.post('https://zeit-test.wevisualizeit.now.sh/api/sendMail', {
+    await axios.post('https://7io-mail.wevisualizeit.now.sh/api/sendMail', {
       firstName, lastName, email, phoneNumber, companyName, message,
     }).then((response) => {
-      console.log('response:', response);
       if (response.data.status === 'success') {
         setSnackBar('Mail succesfuly sent!', 'success');
       } else if (response.data.status === 'fail') {
