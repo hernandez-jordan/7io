@@ -8,15 +8,13 @@ import {
   Container,
   Grid
 } from "@material-ui/core";
-import { HashLink as Link } from "react-router-hash-link";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import Avatar from "@material-ui/core/Avatar";
 import Carousel from "nuka-carousel";
-import image from "../../img/Baby-Yoda-2.jpg";
 
 const useStyles = makeStyles(theme => ({
   outer: {
-    backgroundColor: "#F5F5F9",
+    backgroundColor: "#fafafa",
     paddingTop: 50,
     paddingBottom: 50,
     height: "auto",
@@ -30,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     borderRadius: 10,
     textAlign: "center",
-    backgroundColor: "#F5F5F9"
+    backgroundColor: "#Fafafa"
   },
   cardImage: {
     boxShadow: "none",
@@ -61,7 +59,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: 0,
     margin: "50px auto",
     textAlign: "center",
-    color: "#9C9C9C"
+    color: "#9C9C9C",
+    [theme.breakpoints.up("md")]: {
+      width: "80%",
+    }
   },
   button: {
     color: "white",
@@ -89,13 +90,15 @@ const useStyles = makeStyles(theme => ({
     marginTop: 20
   },
   grid: {
-    margin: "auto"
+    margin: "auto",
+    paddingTop:20,
+    paddingBottom: 20,
   }
 }));
 
 const items = [
   {
-    icon: require("../../img/Baby-Yoda-2.jpg"),
+    icon: require("../../img/peter.png"),
     title: "Peter Engelberg",
     content: `Peter Engelberg has strong managerial expertise as CEO of a Luxembourg Bank 
       and from running International Asset Management & Private Equity firms. 
@@ -106,10 +109,10 @@ const items = [
       Peter holds a Master’s degree in Law from Lund University, Sweden, and a diploma of studies 
       in International Management from IMD in Lausanne, Switzerland.`,
     img: require("../../img/dataStorage.svg"),
-    link: "www.linkedin.com/in/peter-engelberg-2978105/"
+    link: "https://www.linkedin.com/in/peter-engelberg-2978105/"
   },
   {
-    icon: require("../../img/Baby-Yoda-2.jpg"),
+    icon: require("../../img/eelko.png"),
     title: "Eelko Neven",
     content: `In 2001 Eelko kickstarted his promising career as a SoftwareEngineer
       at Fintrans where he became an expert in digitizing the insurance industry. 
@@ -122,10 +125,10 @@ const items = [
       Nowadays Eelko focuses on providing revolutionary solutions for businesses that 
       seek to improve their IT department.`,
     img: require("../../img/dataStorage.svg"),
-    link: "www.linkedin.com/in/suresync/"
+    link: "https://www.linkedin.com/in/suresync/"
   },
   {
-    icon: require("../../img/Baby-Yoda-2.jpg"),
+    icon: require("../../img/alex.png"),
     title: "Alexander Metz",
     content: `Alexander has been doing sales in a diverse set of markets in the US
       and The Netherlands since 2012. During college in 2016 he became a 
@@ -138,7 +141,7 @@ const items = [
       startups in which he did sales and operations. Today,Alex can be 
       found in the field doing sales and consultancy in the IT and Fintech sector.`,
     img: require("../../img/dataStorage.svg"),
-    link: "www.linkedin.com/in/alex-metz-a07582156/"
+    link: "https://www.linkedin.com/in/alex-metz-a07582156/"
   }
 ];
 
@@ -151,7 +154,7 @@ const Team = () => {
         <Fragment key={key}>
           <Grid item xs={12} sm={12} md={8} lg={8} className={classes.grid}>
             <Card className={classes.card}>
-              <Avatar alt={item.title} src={image} className={classes.large} />
+              <Avatar alt={item.title} src={item.icon} className={classes.large} />
               <CardContent>
                 <Typography gutterBottom variant="h5">
                   {item.title}
@@ -159,7 +162,7 @@ const Team = () => {
                 <Typography variant="body2" color="textSecondary" component="p">
                   {item.content}
                 </Typography>
-                <Link to={item.link} className={classes.link}>
+                <a href={item.link} className={classes.link}>
                   <Button
                     className={classes.button}
                     variant="contained"
@@ -167,7 +170,7 @@ const Team = () => {
                   >
                     Contact Me
                   </Button>
-                </Link>
+                </a>
               </CardContent>
             </Card>
           </Grid>
@@ -187,9 +190,14 @@ const Team = () => {
           className={classes.subtitle}
           variant="subtitle2"
         >
-          Our team is small, but we represent a family, a family with hundreds
-          of worldwide employees that we closely work with to make our solutions
-          unique.
+          7io B.V. is ran by a small team with extensive experience in
+          compliance, finance, legal, and IT. Besides 7io’s three founders, the
+          team consists of hundreds of worldwide employees that participate in
+          making the offered solutions unique.   By working with our partners
+          and their teams, we are able to create new custom fit solutions that
+          have never been seen before. Our client base is diverse and consists
+          of multinationals, financial institutions, data driven companies and
+          other businesses that seek to improve their operations.
         </Typography>
         <Carousel
           dragging={true}
@@ -198,10 +206,12 @@ const Team = () => {
           renderCenterLeftControls={null}
           renderCenterRightControls={null}
           enableKeyboardControls={true}
-          wrapAround = {true}
+          wrapAround={true}
           autoplay={true}
           pauseOnHover={true}
           autoplayInterval={10000}
+          heightMode="max"
+          //vertical={true}
         >
           {renderItems(items)}
         </Carousel>

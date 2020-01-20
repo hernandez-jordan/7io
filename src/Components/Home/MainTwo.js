@@ -2,7 +2,6 @@ import React from "react";
 import {
   makeStyles,
   Card,
-  CardActionArea,
   CardContent,
   CardMedia,
   Typography,
@@ -30,6 +29,7 @@ const useStyles = makeStyles(theme=>({
     height: "100%",
     borderRadius: 10,
     textAlign: "center",
+    paddingBottom: 20,
     "&:hover": {
       backgroundColor: "#FEFDFF"
     }
@@ -69,19 +69,19 @@ const MainTwo = () => {
 
   const cardItems = [
     {
-      img: require("../../img/mainFOE1.svg"),
+      img: require("../../img/transparent-WWF.svg"),
       title: "Transparency",
       content:
         "When we offer our services and solutions, as well as the services from our service providers, we do this in a transparent manner and we apply the same fee structure as our service providers."
     },
     {
-      img: require("../../img/mainFOE2.svg"),
+      img: require("../../img/longterm-WWF.svg"),
       title: "Long-term relationships",
       content:
         "We believe in forming valuable long-term relationships in which we establish growth and continue to improve and innovate together."
     },
     {
-      img: require("../../img/mainFOE1.svg"),
+      img: require("../../img/solutions-WWF.svg"),
       title: "Turnkey solutions",
       content:
         "We are defined as a solution driven company rather than a reselling company. By combining innovative products with a high level of expertise, we are able to offer state-of-the-art solutions that are custom made and easy to implement."
@@ -92,7 +92,6 @@ const MainTwo = () => {
     return cardItems.map((cardItem, key) => {
       return (
         <Grid item xs={12} sm={6} md={4} key={key}>
-          <CardActionArea className={classes.card}>
             <Card className={classes.card}>
               <CardMedia
                 className={classes.cardMedia}
@@ -111,7 +110,6 @@ const MainTwo = () => {
                 </Typography>
               </CardContent>
             </Card>
-          </CardActionArea>
         </Grid>
       );
     });

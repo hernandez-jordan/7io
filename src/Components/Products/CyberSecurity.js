@@ -10,6 +10,8 @@ import {
   Grid
 } from "@material-ui/core";
 import { HashLink as Link } from "react-router-hash-link";
+import img from "../../img/webSecurity.svg";
+import img2 from "../../img/security.svg";
 
 const useStyles = makeStyles(theme =>({
   outer: {
@@ -28,13 +30,26 @@ const useStyles = makeStyles(theme =>({
     borderRadius: 10,
     textAlign: "center",
     backgroundColor: "#F5F5F9",
+    paddingBottom: 20,
   },
   cardImage: {
-    boxShadow: "none",
-    height: "100%",
-    borderRadius: 10,
-    textAlign: "center",
+    objectFit: "none",
+    backgroundRepeat: "no-repeat",
     backgroundColor: "#F5F5F9",
+    backgroundImage: `url(${img})`,
+    backgroundSize: "contain",
+    backgroundPosition: "top",
+    [theme.breakpoints.down("sm")]: {
+      display: 'none',
+    },
+  },
+  cardImage2: {
+    objectFit: "none",
+    backgroundRepeat: "no-repeat",
+    backgroundColor: "#F5F5F9",
+    backgroundImage: `url(${img2})`,
+    backgroundSize: "contain",
+    backgroundPosition: "top",
     [theme.breakpoints.down("sm")]: {
       display: 'none',
     },
@@ -43,7 +58,7 @@ const useStyles = makeStyles(theme =>({
     height: 140
   },
   cardMedia: {
-    objectFit: "none"
+    objectFit: "none",
   },
   title: {
     marginTop: 50,
@@ -58,7 +73,10 @@ const useStyles = makeStyles(theme =>({
     marginTop: 0,
     margin: "50px auto",
     textAlign: "center",
-    color: "#9C9C9C"
+    color: "#9C9C9C",
+    [theme.breakpoints.up("md")]: {
+      width: "80%",
+    }
   },
   button: {
     color: "white",
@@ -84,7 +102,7 @@ const useStyles = makeStyles(theme =>({
 
 const items = [
   {
-    icon: require("../../img/mainFOE1.svg"),
+    icon: require("../../img/security2.svg"),
     title: "Web Security Map",
     content: "",
     img: require("../../img/dataStorage.svg")
@@ -93,7 +111,7 @@ const items = [
 
 const itemsTwo = [
   {
-    icon: require("../../img/mainFOE1.svg"),
+    icon: require("../../img/security3.svg"),
     title: "Security audits",
     content: "",
     img: require("../../img/dataStorage.svg")
@@ -134,7 +152,7 @@ const CyberSecurity = () => {
                   Our team has participated in making the internet a cleaner and
                   safer place. The open sourced non-profit project of the
                   internet cleanup foundation has shown governmental
-                  institutions that their websites aren’t secure.<br/>
+                  institutions that their websites aren’t secure. <br/> <br/>
                   After three years of development, and seeing the government
                   actively use the product, we noticed that there is great value
                   for the private sector as well. Multinationals and businesses
@@ -152,32 +170,17 @@ const CyberSecurity = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={12} md={6} className={classes.cardImage}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                component="img"
-                //height="140"
-                image={item.img}
-              />
-            </Card>
           </Grid>
         </Fragment>
       );
     });
   };
+
   const renderItemsTwo = itemsTwo => {
     return itemsTwo.map((item, key) => {
       return (
         <Fragment key={key}>
-          <Grid item xs={12} sm={12} md={6} className={classes.cardImage}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                component="img"
-                //height="140"
-                image={item.img}
-              />
-            </Card>
+          <Grid item xs={12} sm={12} md={6} className={classes.cardImage2} title={item.title}>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <Card className={classes.card}>

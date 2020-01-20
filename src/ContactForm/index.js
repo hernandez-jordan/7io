@@ -184,7 +184,7 @@ const ContactForm = props => {
           variant="h2"
           component="h1"
         >
-          Contact Us
+          Contact us
         </Typography>
         <form
           className={classes.root}

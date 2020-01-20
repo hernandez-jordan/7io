@@ -104,9 +104,9 @@ const HeroBanner = () => {
                   className={classes.subTitle}
                   variant="subtitle1"
                 >
-                  Specialized in combining Legal, Finance and IT <br />
-                  Reseller of unique and effective products <br />
-                  Custom solutions that are made to last <br />
+                  - Specialized in combining Legal, Finance and IT <br />
+                  - Reseller of unique and effective products <br />
+                  - Custom solutions that are made to last <br />
                 </Typography>
                 <Link
                   smooth

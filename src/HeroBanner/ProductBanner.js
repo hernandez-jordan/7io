@@ -71,17 +71,17 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${bannerProduct})`,
     [theme.breakpoints.down("xs")]: {
       backgroundImage: `url(${bannerProductMobile})`,
-      height: 750,
+      height: 750
     },
     [theme.breakpoints.down("sm")]: {
-      backgroundImage: `url(${bannerProductMobileMedium})`,
+      backgroundImage: `url(${bannerProductMobileMedium})`
     }
-  },
+  }
 }));
 
 const ProductBanner = () => {
   const classes = useStyles();
-  
+
   const scrollWithOffset = (el, offset) => {
     const elementPosition = el.offsetTop - offset;
     window.scroll({
@@ -92,40 +92,37 @@ const ProductBanner = () => {
   };
 
   return (
-    <div
-      id="productBanner"
-      className={classes.heroImage}
-    >
+    <div id="productBanner" className={classes.heroImage}>
       <Container className={classes.container}>
         <div className={classes.slogan}>
-            <Typography gutterBottom className={classes.title} variant="h1">
-              7io
-            </Typography>
-            <Typography gutterBottom className={classes.title} variant="h2">
-              DATA STORAGE
-            </Typography>
-            <Typography
-              gutterBottom
-              className={classes.subTitle}
-              variant="subtitle1"
+          <Typography gutterBottom className={classes.title} variant="h1">
+            7io
+          </Typography>
+          <Typography gutterBottom className={classes.title} variant="h2">
+            PRODUCTS
+          </Typography>
+          <Typography
+            gutterBottom
+            className={classes.subTitle}
+            variant="subtitle1"
+          >
+            Combining state-of-the-art products with our services makes <br/>
+            improvement certain and noticeable. 
+          </Typography>
+          <Link
+            smooth
+            to="/contact#contactContainer"
+            className={classes.link}
+            scroll={el => scrollWithOffset(el, 0)}
+          >
+            <Button
+              className={classes.button}
+              variant="contained"
+              startIcon={<PhoneIcon />}
             >
-              By combining a new S3 compatible cloud storage solution <br />
-              with a local drive for windows, accessing and using your <br />
-              data becomes affordable and effortless <br />
-            </Typography>
-            <Link 
-              smooth to="/contact#contactContainer" 
-              className={classes.link}
-              scroll={el => scrollWithOffset(el, 0)}
-              >
-              <Button
-                className={classes.button}
-                variant="contained"
-                startIcon={<PhoneIcon />}
-              >
-                Contact Us
-              </Button>
-            </Link>
+              Contact Us
+            </Button>
+          </Link>
         </div>
       </Container>
     </div>

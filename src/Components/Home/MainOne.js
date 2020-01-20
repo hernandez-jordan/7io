@@ -2,7 +2,6 @@ import React from "react";
 import {
   makeStyles,
   Card,
-  CardActionArea,
   CardContent,
   CardMedia,
   Button,
@@ -31,7 +30,8 @@ const useStyles = makeStyles(theme => ({
     boxShadow: "none",
     height: "100%",
     borderRadius: 10,
-    textAlign: "center"
+    textAlign: "center",
+    paddingBottom: 20,
   },
   media: {
     height: 140
@@ -72,7 +72,7 @@ const MainOne = () => {
 
   const cardItems = [
     {
-      img: require("../../img/mainFOE1.svg"),
+      img: require("../../img/finance-FOE.svg"),
       title: "Finance",
       content:
         "Fundraising, exchange listings, banking software and tokenization of assets."
@@ -90,7 +90,7 @@ const MainOne = () => {
         "Corporate governance, ESG, regulations, contract law and robust corporate structures."
     },
     {
-      img: require("../../img/mainFOE3.svg"),
+      img: require("../../img/compliance-FOE.svg"),
       title: "Compliance",
       content:
         "AML and KYC platform, Cryptocurrency forensic software, Consultancy in Cryptocurrency regulations, MIFIDii, AMLD5, GDPR."
@@ -110,7 +110,6 @@ const MainOne = () => {
     return cardItems.map((cardItem, keyC) => {
       return (
         <Grid item xs={12} sm={6} md={3} key={keyC}>
-          <CardActionArea className={classes.card}>
             <Card className={classes.card}>
               <CardMedia
                 className={classes.cardMedia}
@@ -129,7 +128,6 @@ const MainOne = () => {
                 </Typography>
               </CardContent>
             </Card>
-          </CardActionArea>
         </Grid>
       );
     });

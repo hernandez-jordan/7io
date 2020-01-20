@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     borderRadius: 10,
     textAlign: "center",
-    backgroundColor: "#F5F5F9"
+    paddingBottom: 20,
   },
   cardImage: {
     boxShadow: "none",
@@ -96,21 +96,21 @@ const items = [
     img: require("../../img/dataStorage.svg")
   },
   {
-    icon: require("../../img/mainFOE1.svg"),
+    icon: require("../../img/mainFOE2.svg"),
     title: "IT Services",
     content:
       "Our team has been around the IT industry for over 20 years focusing on any piece of code that needed to be battle tested or fixed. We have the knowledge to roll out proof of concepts effortlessly and have the network to put a team of experienced developers, hackers or system integrators on the job. Specializing in cyber security, PoC architectures, data storage, DLT and complex problem solving.",
     img: require("../../img/dataStorage.svg")
   },
   {
-    icon: require("../../img/mainFOE1.svg"),
+    icon: require("../../img/compliance-FOE.svg"),
     title: "Compliance",
     content:
       "Our team has experienced compliance from many different angles. Dealing with complex matters such as cryptocurrencies, storing client data properly for GDPR or managing a full compliance department for a bank are just some examples of what our experience builds on. We are specialized in consultancy regarding Cryptocurrency regulations, MIFIDii, AML and GDPR.",
     img: require("../../img/dataStorage.svg")
   },
   {
-    icon: require("../../img/mainFOE1.svg"),
+    icon: require("../../img/finance-FOE.svg"),
     title: "Financing",
     content:
       "The 7io B.V. team has a broad network that enables us to raise capital through several methods in several countries. When provided with the proper documentation, we are able to connect clients with crowdfunding, private equity and venture capital firms for just about any amount required.",
@@ -163,14 +163,6 @@ const AllServices = () => {
       <Container className={classes.container}>
         <Typography gutterBottom className={classes.title} variant="h2">
           SERVICES
-        </Typography>
-        <Typography
-          gutterBottom
-          className={classes.subtitle}
-          variant="subtitle2"
-        >
-          Besides our solutions, we offer our services separately in which we
-          consult and help clients achieve what they desire.
         </Typography>
         <Grid container spacing={2}>
           {renderItems(items)}

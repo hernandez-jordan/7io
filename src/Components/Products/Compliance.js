@@ -11,6 +11,8 @@ import {
 } from "@material-ui/core";
 import { HashLink as Link } from "react-router-hash-link";
 import Skeleton from '@material-ui/lab/Skeleton';
+import img from "../../img/kyc.svg";
+import img2 from "../../img/crypto.svg";
 
 const useStyles = makeStyles(theme => ({
   outer: {
@@ -28,17 +30,28 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     borderRadius: 10,
     textAlign: "center",
-    backgroundColor: "#331D48"
+    backgroundColor: "#331D48",
+    paddingBottom: 20,
   },
   cardImage: {
-    boxShadow: "none",
-    height: "100%",
-    borderRadius: 10,
-    textAlign: "center",
-    //backgroundColor: "#F5F5F9",
+    objectFit: "none",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${img})`,
+    backgroundSize: "contain",
+    backgroundPosition: "top",
     [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
+      display: 'none',
+    },
+  },
+  cardImage2: {
+    objectFit: "none",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${img2})`,
+    backgroundSize: "contain",
+    backgroundPosition: "top",
+    [theme.breakpoints.down("sm")]: {
+      display: 'none',
+    },
   },
   media: {
     height: 140
@@ -59,7 +72,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: 0,
     margin: "50px auto",
     textAlign: "center",
-    color: "white"
+    color: "white",
+    [theme.breakpoints.up("md")]: {
+      width: "80%",
+    }
   },
   button: {
     color: "white",
@@ -88,16 +104,16 @@ const useStyles = makeStyles(theme => ({
 
 const items = [
   {
-    icon: require("../../img/mainFOE1.svg"),
+    icon: require("../../img/kyc2.svg"),
     title: "A KYC Solution that is made to last",
     content: "",
-    img: require("../../img/dataStorage.svg")
+    img: require("../../img/kyc2.svg")
   }
 ];
 
 const itemsTwo = [
   {
-    icon: require("../../img/mainFOE1.svg"),
+    icon: require("../../img/mainFOE3.svg"),
     title: "The new framework for Cryptocurrency companies",
     content: "",
     img: require("../../img/dataStorage.svg")
@@ -155,15 +171,7 @@ const Compliance = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={12} md={6} className={classes.cardImage}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                component="img"
-                //height="140"
-                image={item.img}
-              />
-            </Card>
+          <Grid item xs={12} sm={12} md={6} className={classes.cardImage} title={item.title}>
           </Grid>
         </Fragment>
       );
@@ -173,15 +181,7 @@ const Compliance = () => {
     return itemsTwo.map((item, key) => {
       return (
         <Fragment key={key}>
-          <Grid item xs={12} sm={12} md={6} className={classes.cardImage}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                component="img"
-                //height="140"
-                image={item.img}
-              />
-            </Card>
+          <Grid item xs={12} sm={12} md={6} className={classes.cardImage2} title={item.title}>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <Card className={classes.card}>

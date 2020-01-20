@@ -93,7 +93,7 @@ const TriggerMenu = props => {
         },
         {
           id: "compliances",
-          label: "Compliances",
+          label: "Compliance",
           menuProps: {
             onClickFunction: e => popupProduct.close
           }
@@ -120,7 +120,7 @@ const TriggerMenu = props => {
         },
         {
           id: "services",
-          label: "Compliances",
+          label: "Compliance",
           menuProps: {
             onClickFunction: e => popupServices.close
           }
