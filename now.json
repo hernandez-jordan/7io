@@ -1,4 +1,15 @@
 {
     "name": "7io",
-    "version": 2
+    "version": 2,
+    "routes": [
+        {
+          "src": "/img.*",
+          "headers": { "Cache-Control": "max-age=3600" },
+          "continue": true
+        },
+        {
+          "src": "/img/([^/]+)",
+          "dest": "/img?slug=$1"
+        }
+      ]
 }
