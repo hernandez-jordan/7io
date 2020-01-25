@@ -14,8 +14,10 @@ function App() {
       <div>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>7io</title>
-          <link rel="canonical" href="https://7io.eu" />
+          <meta name="Description" content="Deals with Corporate Governance, IT Services, Compliance and Financing"/>
+          <link rel="canonical" href="https://7io.eu"/>
+          <title>7io - Combining the best</title>
+          
         </Helmet>
         <Switch>
           <Route exact path="/">
