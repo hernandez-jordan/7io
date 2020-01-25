@@ -104,28 +104,20 @@ const useStyles = makeStyles(theme => ({
 
 const items = [
   {
-    icon: require("../../img/Baby-Yoda-2.jpg"),
     title: "Tribeca",
     img: require("../../img/partner1.svg"),
-    link: "www.linkedin.com/in/peter-engelberg-2978105/"
   },
   {
-    icon: require("../../img/Baby-Yoda-2.jpg"),
     title: "Wasabi",
     img: require("../../img/partner2.svg"),
-    link: "www.linkedin.com/in/suresync/"
   },
   {
-    icon: require("../../img/Baby-Yoda-2.jpg"),
-    title: "Tribeca",
-    img: require("../../img/partner1.svg"),
-    link: "www.linkedin.com/in/peter-engelberg-2978105/"
+    title: "We Visualize It",
+    img: require("../../img/wvi-logo.svg"),
   },
   {
-    icon: require("../../img/Baby-Yoda-2.jpg"),
-    title: "Wasabi",
-    img: require("../../img/partner2.svg"),
-    link: "www.linkedin.com/in/suresync/"
+    title: "TntDrive",
+    img: require("../../img/TntDrive.svg"),
   },
   
 ];
