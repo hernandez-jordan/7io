@@ -65,7 +65,7 @@ const Footer = () => {
                         Company <br/>
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p" style={{display: 'inline-block', color: 'white'}}>
-                        KVK: 75374390 <br/>
+                        KVK: NL75374390 <br/>
                         BTW-Number: 860257411B01 <br/>
                         Phone: +31106690867  <br/>
                     </Typography>

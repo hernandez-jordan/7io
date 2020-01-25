@@ -16,6 +16,7 @@ import { HashLink as Link } from "react-router-hash-link";
 const useStyles = makeStyles(theme => ({
   outer: {
     paddingBottom: 50,
+    paddingTop: 50,
     height: "auto",
     width: "100%"
   },

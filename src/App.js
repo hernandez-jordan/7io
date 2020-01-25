@@ -15,7 +15,7 @@ function App() {
         <Helmet>
           <meta charSet="utf-8" />
           <title>7io</title>
-          <link rel="canonical" href="https://7io.wevisualizeit.now.sh" />
+          <link rel="canonical" href="https://7io.eu" />
         </Helmet>
         <Switch>
           <Route exact path="/">
