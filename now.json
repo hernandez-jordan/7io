@@ -3,13 +3,9 @@
     "version": 2,
     "routes": [
         {
-          "src": "./img.*",
-          "headers": { "Cache-Control": "max-age=3600" },
+          "src": "./img/(.*)",
+          "headers": { "cache-control": "s-maxage=604800" },
           "continue": true
-        },
-        {
-          "src": "./img/([^/]+)",
-          "dest": "./img?slug=$1"
         }
       ]
 }
