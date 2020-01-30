@@ -43,15 +43,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   media: {
-    [theme.breakpoints.down("md")]: {
-      width: "75%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "50%",
-    },
-    [theme.breakpoints.down("xs")]: {
-      width: "90%",
-    },
+    width: "100%",
   },
   cardMedia: {
     objectFit: "none"
@@ -105,23 +97,27 @@ const useStyles = makeStyles(theme => ({
 const items = [
   {
     title: "Tribeca",
-    img: require("../../img/partner1.svg"),
+    img: require("../../img/Tribeca.png"),
+  },
+  {
+    title: "Blanco",
+    img: require("../../img/Blanco.png"),
   },
   {
     title: "Wasabi",
-    img: require("../../img/partner2.svg"),
+    img: require("../../img/Wasabi.png"),
   },
   {
     title: "We Visualize It",
-    img: require("../../img/wvi-logo.svg"),
+    img: require("../../img/wvi-logo.png"),
   },
   {
     title: "TntDrive",
-    img: require("../../img/TntDrive.svg"),
+    img: require("../../img/TntDrive.png"),
   },
   {
     title: "WebSecurityMap",
-    img: require("../../img/WSM.png"),
+    img: require("../../img/WebSecurityMap.png"),
   },
   
 ];
@@ -130,7 +126,7 @@ const PartnersSlider = () => {
   const classes = useStyles();
 
   const windowWidth = useWindowWidth();
-  const isDesktop = windowWidth >= 960;
+  const isDesktop = windowWidth >= 600;
   const renderItems = items => {
     return items.map((item, key) => {
       return (
@@ -165,7 +161,6 @@ const PartnersSlider = () => {
           renderBottomCenterControls={null}
           wrapAround = {true}
           initialSlideHeight={150}
-          cellAlign="center"
         >
           {renderItems(items)}
         </Carousel>
