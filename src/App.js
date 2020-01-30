@@ -5,8 +5,11 @@ import Products from "./Pages/Products";
 import Services from "./Pages/Services";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import PageNotFound from "./Pages/404";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
+
+const pageError = () => <PageNotFound />;
 
 function App() {
   return (
@@ -21,25 +24,21 @@ function App() {
         </Helmet>
         <Switch>
           <Route exact path="/">
-            <Home
-            />
+            <Home/>
           </Route>
           <Route path="/products">
-            <Products
-            />
+            <Products/>
           </Route>
           <Route path="/services">
-            <Services
-            />
+            <Services/>
           </Route>
           <Route path="/about">
-            <About
-            />
+            <About/>
           </Route>
           <Route path="/contact">
-            <Contact
-            />
+            <Contact/>
           </Route>
+          <Route component={pageError} />
         </Switch>
       </div>
     </Router>
