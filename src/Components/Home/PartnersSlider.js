@@ -119,6 +119,10 @@ const items = [
     title: "TntDrive",
     img: require("../../img/TntDrive.svg"),
   },
+  {
+    title: "WebSecurityMap",
+    img: require("../../img/WSM.png"),
+  },
   
 ];
 
@@ -160,6 +164,8 @@ const PartnersSlider = () => {
           enableKeyboardControls={true}
           renderBottomCenterControls={null}
           wrapAround = {true}
+          initialSlideHeight={150}
+          cellAlign="center"
         >
           {renderItems(items)}
         </Carousel>

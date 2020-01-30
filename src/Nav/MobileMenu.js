@@ -36,21 +36,19 @@ const useStyles = makeStyles({
   }
 });
 
-const useOpen = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => setOpen(!open);
-
-  return { open, handleClick, setOpen };
-};
 
 const MobileMenu = () => {
   const classes = useStyles();
   const [state, setState] = useState({
     right: false
   });
+
+  const useOpen = () => {
+    const [open, setOpen] = useState(false);
+    const handleClick = () => setOpen(!open);
+    return { open, handleClick, setOpen };
+  };
   const dataStorageOpenMenu = useOpen();
-  const newOpenMenu = useOpen();
 
   const menuItems = [
     {
@@ -106,7 +104,6 @@ const MobileMenu = () => {
   ];
 
   const closeAllMenuItems = headerLabel => {
-    if (headerLabel !== "Contact") newOpenMenu.setOpen(false);
     if (headerLabel !== "Products") dataStorageOpenMenu.setOpen(false);
   };
 
@@ -125,7 +122,6 @@ const MobileMenu = () => {
     ) {
       return;
     }
-
     setState({ ...state, [side]: open });
   };
 
