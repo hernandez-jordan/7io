@@ -12,13 +12,13 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "material-ui-popup-state": "^1.6.1",
-    "nuka-carousel": "^4.7.0",
+    "nuka-carousel": "^4.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^1.2.2",
-    "react-scripts": "3.3.0"
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "node": "node index.js",
@@ -45,6 +45,6 @@
   "devDependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "nodemailer": "^6.4.10"
+    "nodemailer": "^6.4.11"
   }
 }
