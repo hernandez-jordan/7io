@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductSections from '../Components/Products';
+import ProductPage from '../Components/Products';
 import GenericPage from '../Pages/common/GenericPage';
 
 
@@ -7,7 +7,7 @@ import GenericPage from '../Pages/common/GenericPage';
 const Products = () => {
   return (
       <GenericPage>
-        <ProductSections />
+        <ProductPage />
       </GenericPage>
   );
 }

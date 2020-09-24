@@ -15,7 +15,6 @@ import {
 import  axios  from 'axios';
 import { green } from '@material-ui/core/colors';
 import SendIcon from '@material-ui/icons/Send';
-//import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,10 +1,10 @@
 import React from "react";
-import PageNotFoundBanner from "../HeroBanner/404";
+import PageError from "../HeroBanner/404";
 
 const PageNotFound = () => {
   return (
     <>
-      <PageNotFoundBanner />
+      <PageError />
     </>
   );
 };

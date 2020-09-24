@@ -1,11 +1,11 @@
 import React from 'react';
 import GenericPage from "../Pages/common/GenericPage";
-import AboutSections from '../Components/About';
+import AboutPage from '../Components/About';
 
 const About = () => {
   return (
       <GenericPage>
-        <AboutSections />
+        <AboutPage />
       </GenericPage>
   );
 }
