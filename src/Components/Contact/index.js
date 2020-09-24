@@ -1,5 +1,5 @@
 import React from "react";
-import ContactForm from '../../ContactForm';
+import ContactForm from '../ContactForm/index';
 import ContactBanner from '../../HeroBanner/ContactBanner';
 
 const ContactSections = () => {

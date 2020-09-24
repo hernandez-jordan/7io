@@ -66,8 +66,8 @@ const grids = [
         ],
       },
       {
-        variant: null,
-        component: "subtitle1",
+        variant: "subtitle1",
+        component: "h2",
         texts: [{ text: `Copyright © 2019 7io, Powered by We Visualize It` }],
         style: [
           {
@@ -176,10 +176,10 @@ const Footer = () => {
                   component={content.component}
                   style={content.style[0]}
                 >
-                  {content.texts.map((text) => (
-                    <>
+                  {content.texts.map((text, keyJ) => (
+                    <React.Fragment key={keyJ}>
                       {text.text} <br />
-                    </>
+                    </React.Fragment>
                   ))}
                 </Typography>
               ))}
